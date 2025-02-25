@@ -33,6 +33,17 @@ body {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+.button-type {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+}
+
+.button-type-active {
+  background-color: var(--bg-accent);
+  color: var(--bg-primary);
+}
+
 .button:active {
   transform: scale(0.95);
   opacity: 0.9;
