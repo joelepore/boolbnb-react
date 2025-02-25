@@ -1,11 +1,11 @@
 import LikesButton from "./LikesButton"
 import ImgSlider from "./ImgSlider"
 
-const Card = ({ name, indirizzo, details, stanze, bagni, metri, stelline, cuori }) => {
+const Card = ({ name, indirizzo, details, stanze, bagni, metri, stelline, cuori, arrayImg, coverImg }) => {
     return (
         <div className="card">
             <div className="swiper-likes-section position-relative">
-                <ImgSlider />
+                <ImgSlider arrayImg={arrayImg} coverImg={coverImg} />
                 <LikesButton />
             </div>
 
@@ -14,13 +14,13 @@ const Card = ({ name, indirizzo, details, stanze, bagni, metri, stelline, cuori 
             <div className="row card-body">
                 <div className="col-9 d-flex flex-column gap-3">
                     <h4 className="card-title text-truncate">{name}</h4>
-                    <p className="card-text text-muted">
+                    <p className="card-text text-muted text-truncate">
                         <i className="fa-solid fa-map-marker-alt"></i> {indirizzo}
                     </p>
                 </div>
                 <div className="col-3 d-flex flex-column gap-3">
-                    <span><i className="text-warning fa-solid fa-star"></i>{stelline}</span>
-                    <span><i className="text-danger fa-solid fa-heart"></i>{cuori}</span>
+                    <span><i className="text-warning fa-solid fa-star pe-1"></i> {stelline}</span>
+                    <span><i className="text-danger fa-solid fa-heart pe-1"></i> {cuori}</span>
                 </div>
             </div>
 

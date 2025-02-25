@@ -8,20 +8,17 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 
-const ImgSlider = () => {
+const ImgSlider = ({ arrayImg, coverImg }) => {
     return (
         <>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                <SwiperSlide>
-                    <img src="https://placehold.co/150x150"
-                        alt="Immagine appartamento"
-                        className="card-img" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://placehold.co/150x150"
-                        alt="Immagine appartamento"
-                        className="card-img" />
-                </SwiperSlide>
+                <SwiperSlide><img src={coverImg} alt="" className='card-img' /></SwiperSlide>
+                {arrayImg.map((img) => (
+                    <SwiperSlide>
+                        <img src={img.path} alt="img" className='card-img' />
+                    </SwiperSlide>
+                ))}
+
 
             </Swiper>
         </>

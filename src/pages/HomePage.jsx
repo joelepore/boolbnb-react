@@ -1,17 +1,28 @@
 import Button from "../components/Button"
 import Card from "../components/Card"
+import { useEffect } from "react"
+import { useGlobalContext } from "../context/GlobalContext"
 
 const HomePage = () => {
+
+    const { fetchProperties, properties } = useGlobalContext()
+
+    useEffect(() => {
+        fetchProperties()
+    }, [])
+
     return (
-        //<div><Button text={"testo"} onClick={""} /></div>
         <div className="container">
 
             <h1 className="text-center py-3">Immobili in evidenza</h1>
 
             <div className="row row-cols-1 row-cols-xxl-4 row-cols-xl-3 row-cols-md-2 row-cols-sm-1 g-3 ">
-                <div className="col">
-                    <Card name={"Appartamento Roma"} indirizzo={"Via Roma"} details={true} stanze={2} bagni={3} metri={2000} stelline={4.2} cuori={350} />
-                </div>
+                {properties.map((property) => (
+                    <div className="col" key={property.id}>
+                        <Card name={property.title} indirizzo={property.address} details={false} stelline={property.average_vote} cuori={property.likes} arrayImg={property.images} coverImg={property.cover_img} />
+                    </div>
+                ))}
+
             </div>
         </div>
     )
