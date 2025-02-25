@@ -15,6 +15,13 @@ const GlobalProvider = ({ children }) => {
     const [filterData, setFilterData] = useState(initialFilterData);
     const [types, setTypes] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
+    const [properties, setProperties] = useState([]);
+
+    function fetchProperties() {
+        axios.get(`${api_url}/properties?limit=20&page=1`) // Gestire limit e page in modo dinamico
+            .then(res => setProperties(res.data))
+            .catch(err => console.error(err))
+    }
 
     const resetModalFilterData = (e) => {
         e.preventDefault();
@@ -33,7 +40,10 @@ const GlobalProvider = ({ children }) => {
         resetModalFilterData,
         types,
         isSearching,
-        setIsSearching
+        setIsSearching,
+        fetchProperties,
+        properties,
+        setProperties
     }
 
 

@@ -24,6 +24,7 @@ body {
 nav {
   border-bottom: 1px solid #cfd1d3;
   margin: auto 0;
+  padding: 0.5rem 0.8rem;
 }
 
 h4 {
@@ -90,6 +91,8 @@ h4 {
   width: 100%;
   border-radius: 0.5rem;
   padding-bottom: 10px;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .button-link {
@@ -183,6 +186,25 @@ h4 {
 .heart-button:active {
   transform: scale(0.95);
   opacity: 0.9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #003366;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #002244;
 }
 
 
