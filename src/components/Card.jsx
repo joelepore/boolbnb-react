@@ -5,7 +5,7 @@ const Card = ({ name, indirizzo, details, stanze, bagni, metri }) => {
         <div className="card">
             {/* componente swiper */}
             {/* componente heart btn */}
-            <img src="x"
+            <img src="https://placehold.co/150x150"
                 alt="Immagine appartamento"
                 className="img-fluid rounded-top" />
             <div className="card-body w-50 pt-3">

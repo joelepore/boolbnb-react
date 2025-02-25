@@ -39,7 +39,7 @@ body {
 }
 
 .card {
-  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-secondary);
   padding: 1rem;
   border-radius: 0.5rem;
 }
