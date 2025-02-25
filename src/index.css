@@ -37,3 +37,72 @@ body {
   transform: scale(0.95);
   opacity: 0.9;
 }
+
+.button-link {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button-link:hover {
+  text-decoration: underline;
+}
+
+.searchbar {
+  border-radius: 2rem;
+  border: none;
+}
+
+.search-modal-overlay {
+  background-color: #000000cc;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+
+.search-modal {
+  max-width: 425px;
+  min-width: 100%;
+  height: max-content;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+}
+
+.search-modal input,
+.search-modal button {
+  font-family: 'Instrument Sans';
+}
+
+.input-number button {
+  font-family: 'Instrument Sans';
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.input-number button:hover {
+  opacity: .8;
+}
+
+.accordion-type {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (min-width: 425px) {
+  .search-modal {
+    min-width: 425px;
+  }
+}
