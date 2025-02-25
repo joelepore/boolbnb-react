@@ -1,9 +1,25 @@
-import React from 'react'
+import { createContext, useContext, useState } from "react"
+import axios from "axios"
 
-const GlobalContext = () => {
+const GlobalContext = createContext()
+
+const GlobalProvider = ({ children }) => {
+
+    const api_url = import.meta.env.VITE_API_URL
+
+
+    const value = {
+
+    }
+
+
     return (
-        <div>GlobalContext</div>
+        <GlobalContext.Provider value={{}}>
+            {children}
+        </GlobalContext.Provider>
     )
 }
 
-export default GlobalContext
+const useGlobalContext = () => useContext(GlobalContext)
+
+export { useGlobalContext, GlobalProvider }
