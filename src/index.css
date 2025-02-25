@@ -37,3 +37,15 @@ body {
   transform: scale(0.95);
   opacity: 0.9;
 }
+
+.card {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding-bottom: 10px;
+}
