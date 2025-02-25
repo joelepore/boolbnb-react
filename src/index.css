@@ -21,6 +21,26 @@ body {
   background-color: var(--bg-primary);
 }
 
+nav {
+  border-bottom: 1px solid #cfd1d3;
+  margin: auto 0;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 5px;
+}
+
+.logo-brand {
+  text-decoration: none;
+  color: #000028;
+}
+
+.row.searchbar {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 
 .button {
   font-family: 'Instrument Sans';
