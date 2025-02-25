@@ -16,8 +16,13 @@ const SearchModal = () => {
     const handleBedsChange = (value) => {
         setFilterData(prev => ({ ...prev, beds: value }));
     }
+    const handleCloseModal = (e) => {
+        if (e.target === e.currentTarget) {
+            setIsSearching(false);
+        }
+    }
     return (
-        <div className='search-modal-overlay'>
+        <div className='search-modal-overlay' onClick={handleCloseModal}>
 
             <div className='search-modal p-3 gap-3 rounded'>
                 <input
