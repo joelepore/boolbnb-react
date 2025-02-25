@@ -14,6 +14,7 @@ const GlobalProvider = ({ children }) => {
     }
     const [filterData, setFilterData] = useState(initialFilterData);
     const [types, setTypes] = useState([]);
+    const [isSearching, setIsSearching] = useState(false);
 
     const resetModalFilterData = (e) => {
         e.preventDefault();
@@ -30,7 +31,9 @@ const GlobalProvider = ({ children }) => {
         filterData,
         setFilterData,
         resetModalFilterData,
-        types
+        types,
+        isSearching,
+        setIsSearching
     }
 
 

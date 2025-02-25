@@ -5,7 +5,7 @@ import Button from './Button';
 import AccordionType from './AccordionType';
 
 const SearchModal = () => {
-    const { filterData, setFilterData, resetModalFilterData, types } = useGlobalContext();
+    const { filterData, setFilterData, resetModalFilterData, types, setIsSearching } = useGlobalContext();
 
     const handleSearchChange = (e) => {
         setFilterData(prev => ({ ...prev, search: e.target.value }))
@@ -41,7 +41,7 @@ const SearchModal = () => {
 
                 <div className='d-flex justify-content-between'>
                     <button className="button-link" onClick={resetModalFilterData}>Cancella</button>
-                    <Button text="Cerca immobili" />
+                    <Button text="Cerca immobili" onClick={() => setIsSearching(false)} />
                 </div>
             </div>
         </div>
