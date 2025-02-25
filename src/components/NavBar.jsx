@@ -8,7 +8,7 @@ const NavBar = () => {
                     <div className="col-6 col-sm-3 d-flex align-items-center my-3">
 
                         <a href="#" className="d-flex align-items-center logo-brand">
-                            <img className="logo" src="../public/Logo_prova.png" alt="Logo" />
+                            <img className="logo" src="Logo_prova.png" alt="Logo" />
                             <h1 className="logo-brand">BoolB&B</h1>
                         </a>
                     </div>
@@ -18,7 +18,7 @@ const NavBar = () => {
                         <button className="row searchbar">
                             <div className="col-2"></div>
                             <div className="col-8 text-center">Cerca destinazione</div>
-                            <div className="col-2 text-end"><i class="fa-solid fa-sliders"></i></div>
+                            <div className="col-2 text-end"><i className="fa-solid fa-sliders"></i></div>
                         </button>
                     </div>
 
