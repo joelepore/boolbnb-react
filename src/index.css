@@ -26,6 +26,10 @@ nav {
   margin: auto 0;
 }
 
+h4 {
+  color: #75787a;
+}
+
 .logo {
   height: 40px;
   margin-right: 5px;
