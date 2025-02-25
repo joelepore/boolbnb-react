@@ -17,14 +17,14 @@ const NavBar = () => {
                     <div className="col-12 col-sm-6 d-flex justify-content-center align-items-center order-2 order-sm-1 my-3">
                         <button className="row searchbar">
                             <div className="col-2"></div>
-                            <div className="col-8 text-center">Cerca</div>
-                            <div className="col-2"><i class="fa-solid fa-sliders"></i></div>
+                            <div className="col-8 text-center">Cerca destinazione</div>
+                            <div className="col-2 text-end"><i class="fa-solid fa-sliders"></i></div>
                         </button>
                     </div>
 
 
                     <div className="col-6 col-sm-3 d-flex justify-content-end align-items-center order-1 order-sm-3 my-3">
-                        <button className="button">Bottone</button>
+                        <button className="button">Aggiungi immobile</button>
                     </div>
                 </div>
             </div>
