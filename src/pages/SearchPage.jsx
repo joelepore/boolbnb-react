@@ -1,8 +1,14 @@
 import SearchModal from "../components/SearchModal"
+import { useGlobalContext } from "../context/GlobalContext"
 
 const SearchPage = () => {
+    const { isSearching } = useGlobalContext();
+
     return (
-        <div><SearchModal /></div>
+        <>
+            <h1>Risultati della ricerca</h1>
+            {isSearching && <SearchModal />}
+        </>
     )
 }
 
