@@ -37,10 +37,17 @@ nav {
 }
 
 .row.searchbar {
-  width: 100%;
+  width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px 5px;
+  color: #75787a;
+  font-style: italic;
+  cursor: pointer;
 }
 
+.row.searchbar:hover {
+  background-color: #dbdcdfe8;
+}
 
 .button {
   font-family: 'Instrument Sans';
