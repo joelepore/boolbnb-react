@@ -1,8 +1,8 @@
-import React from 'react'
+import SearchModal from "../components/SearchModal"
 
 const SearchPage = () => {
     return (
-        <div>SearchPage</div>
+        <div><SearchModal /></div>
     )
 }
 
