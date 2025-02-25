@@ -151,24 +151,24 @@ nav {
   justify-content: center;
 }
 
-@media screen and (min-width: 425px) {
-  .search-modal {
-    min-width: 425px;
-  }
-}
-
 .heart-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 22px;
+  font-size: 25px;
   color: red;
-  background-color: var(--bg-primary);
+  background-color: transparent;
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
   padding: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.heart-button:hover {
+  transform: scale(1.2);
 }
 
 .swiper-likes-section {
@@ -179,4 +179,11 @@ nav {
 .heart-button:active {
   transform: scale(0.95);
   opacity: 0.9;
+}
+
+
+@media screen and (min-width: 425px) {
+  .search-modal {
+    min-width: 425px;
+  }
 }
