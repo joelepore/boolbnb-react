@@ -1,14 +1,11 @@
 import LikesButton from "./LikesButton"
-
+import ImgSlider from "./ImgSlider"
 
 const Card = ({ name, indirizzo, details, stanze, bagni, metri, stelline, cuori }) => {
     return (
         <div className="card">
             <div className="swiper-likes-section position-relative">
-                <img src="https://placehold.co/150x150"
-                    alt="Immagine appartamento"
-                    className="card-img" />
-                {/* componente swiper */}
+                <ImgSlider />
                 <LikesButton />
             </div>
 
@@ -22,8 +19,8 @@ const Card = ({ name, indirizzo, details, stanze, bagni, metri, stelline, cuori 
                     </p>
                 </div>
                 <div className="col-3 d-flex flex-column gap-3">
-                    <span><i class="text-warning fa-solid fa-star"></i>{stelline}</span>
-                    <span><i class="text-danger fa-solid fa-heart"></i>{cuori}</span>
+                    <span><i className="text-warning fa-solid fa-star"></i>{stelline}</span>
+                    <span><i className="text-danger fa-solid fa-heart"></i>{cuori}</span>
                 </div>
             </div>
 
