@@ -34,8 +34,8 @@ const GlobalProvider = ({ children }) => {
     function updateLikes(id) {
         axios.patch(`${api_url}/properties/${id}`)
             .then(res => {
-                fetchProperties()
-                fetchFilteredProperties()
+                properties[properties.findIndex(property => property.id === id)].likes++;
+                fetchFilteredProperties();
             })
             .catch(err => console.error(err))
     }
@@ -56,7 +56,7 @@ const GlobalProvider = ({ children }) => {
 
         axios.get(`${api_url}/properties?limit=8&page=${newPage}`) // Gestire limit e page in modo dinamico
             .then(res => {
-                setProperties(prev => [...prev, ...res.data.results])
+                setProperties(prev => [...prev, ...res.data.results]);
             })
             .catch(err => console.error(err))
     }
