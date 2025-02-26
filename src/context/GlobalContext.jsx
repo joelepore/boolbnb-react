@@ -24,7 +24,7 @@ const GlobalProvider = ({ children }) => {
         if (search) filteredUrl += `&search=${search}`;
         if (type) filteredUrl += `&type=${type}`;
         axios.get(filteredUrl)
-            .then(res => setFilteredProperties(res.data))
+            .then(res => setFilteredProperties(res.data.results))
             .catch(err => console.error(err))
 
     }
@@ -40,7 +40,7 @@ const GlobalProvider = ({ children }) => {
 
     function fetchProperties() {
         axios.get(`${api_url}/properties?limit=20&page=1`) // Gestire limit e page in modo dinamico
-            .then(res => setProperties(res.data))
+            .then(res => setProperties(res.data.results))
             .catch(err => console.error(err))
     }
 
