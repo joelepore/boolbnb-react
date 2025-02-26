@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <footer className="footer-custom footer bg-dark mt-5 py-3 text-center text-light">
+        <footer className="footer-custom footer mt-5 py-3 border-top text-center text-light">
             <div className="container">
                 <p className="mb-3 text-secondary">Domande? <br /> NON contattarci al:</p>
                 <a href="" className="text-primary text-decoration-none">123-456-789</a>
