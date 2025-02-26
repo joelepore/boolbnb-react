@@ -26,7 +26,10 @@ const GlobalProvider = ({ children }) => {
         if (search) filteredUrl += `&search=${search}`;
         if (type) filteredUrl += `&type=${type}`;
         axios.get(filteredUrl)
-            .then(res => setFilteredProperties(res.data.results))
+            .then(res => {
+                setFilteredProperties(res.data.results);
+                setTotalPages(res.data.totalPages);
+            })
             .catch(err => console.error(err))
 
     }
@@ -34,8 +37,20 @@ const GlobalProvider = ({ children }) => {
     function updateLikes(id) {
         axios.patch(`${api_url}/properties/${id}`)
             .then(res => {
-                fetchProperties()
-                fetchFilteredProperties()
+                setProperties(properties.map(property => {
+                    if (property.id === id) {
+                        return { ...property, likes: property.likes + 1 }
+                    } else {
+                        return property;
+                    }
+                }))
+                setFilteredProperties(filteredProperties.map(property => {
+                    if (property.id === id) {
+                        return { ...property, likes: property.likes + 1 }
+                    } else {
+                        return property;
+                    }
+                }))
             })
             .catch(err => console.error(err))
     }
@@ -56,7 +71,19 @@ const GlobalProvider = ({ children }) => {
 
         axios.get(`${api_url}/properties?limit=8&page=${newPage}`) // Gestire limit e page in modo dinamico
             .then(res => {
-                setProperties(prev => [...prev, ...res.data.results])
+                setProperties(prev => [...prev, ...res.data.results]);
+            })
+            .catch(err => console.error(err))
+    }
+    // Funzione che viene scatenata al click del pulsante mostra altri immobili nella searchpage
+    function incrementCurrentPageSearchPage() {
+        setCurrentPage(prev => prev + 1);
+
+        const newPage = currentPage + 1;
+
+        axios.get(`${api_url}/properties?limit=8&page=${newPage}`) // Gestire limit e page in modo dinamico
+            .then(res => {
+                setFilteredProperties(prev => [...prev, ...res.data.results]);
             })
             .catch(err => console.error(err))
     }
@@ -89,7 +116,8 @@ const GlobalProvider = ({ children }) => {
         incrementCurrentPage,
         currentPage,
         setCurrentPage,
-        totalPages
+        totalPages,
+        incrementCurrentPageSearchPage
     }
 
 
