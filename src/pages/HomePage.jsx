@@ -24,7 +24,7 @@ const HomePage = () => {
                         <div className="col" key={property.id}>
                             <Card name={property.title} indirizzo={property.address} details={false}
                                 stelline={property.average_vote} cuori={property.likes} arrayImg={property.images}
-                                coverImg={property.cover_img} id={property.id} />
+                                coverImg={property.cover_img} id={property.id} bagni={property.bathrooms} />
                         </div>
                     ))}
 
