@@ -81,7 +81,11 @@ const GlobalProvider = ({ children }) => {
 
         const newPage = currentPage + 1;
 
-        axios.get(`${api_url}/properties?limit=8&page=${newPage}`) // Gestire limit e page in modo dinamico
+        const { search, type, rooms, beds } = filterData;
+        let filteredUrl = `${api_url}/properties?limit=8&page=${newPage}&rooms=${rooms}&beds=${beds}`;
+        if (search) filteredUrl += `&search=${search}`;
+        if (type) filteredUrl += `&type=${type}`;
+        axios.get(filteredUrl)
             .then(res => {
                 setFilteredProperties(prev => [...prev, ...res.data.results]);
             })
