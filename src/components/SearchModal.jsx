@@ -6,7 +6,7 @@ import AccordionType from './AccordionType';
 import { useNavigate } from 'react-router-dom';
 
 const SearchModal = () => {
-    const { filterData, setFilterData, resetModalFilterData, types, setIsSearching } = useGlobalContext();
+    const { filterData, setFilterData, resetModalFilterData, types, setIsSearching, fetchFilteredProperties } = useGlobalContext();
     const navigate = useNavigate();
 
     const handleSearchChange = (e) => {
@@ -26,6 +26,7 @@ const SearchModal = () => {
     const handleSearchClick = () => {
         setIsSearching(false);
         navigate('/search');
+        fetchFilteredProperties();
     }
     return (
         <div className='search-modal-overlay' onClick={handleCloseModal}>

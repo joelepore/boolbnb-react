@@ -22,7 +22,9 @@ const HomePage = () => {
                 <div className="row row-cols-1 row-cols-xxl-4 row-cols-xl-3 row-cols-md-2 row-cols-sm-1 g-3 ">
                     {properties.map((property) => (
                         <div className="col" key={property.id}>
-                            <Card name={property.title} indirizzo={property.address} details={false} stelline={property.average_vote} cuori={property.likes} arrayImg={property.images} coverImg={property.cover_img} />
+                            <Card name={property.title} indirizzo={property.address} details={false}
+                                stelline={property.average_vote} cuori={property.likes} arrayImg={property.images}
+                                coverImg={property.cover_img} />
                         </div>
                     ))}
 

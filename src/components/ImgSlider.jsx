@@ -14,7 +14,7 @@ const ImgSlider = ({ arrayImg, coverImg }) => {
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide><img src={coverImg} alt="" className='card-img' /></SwiperSlide>
                 {arrayImg.map((img) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={img.id}>
                         <img src={img.path} alt="img" className='card-img' />
                     </SwiperSlide>
                 ))}
