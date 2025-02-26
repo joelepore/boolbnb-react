@@ -1,9 +1,15 @@
 import SearchModal from "../components/SearchModal"
 import { useGlobalContext } from "../context/GlobalContext"
 import Card from "../components/Card"
+import { useEffect } from "react";
+import Button from "../components/Button";
 
 const SearchPage = () => {
-    const { isSearching, filteredProperties } = useGlobalContext();
+    const { isSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages } = useGlobalContext();
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [])
 
     return (
         <>
@@ -23,6 +29,11 @@ const SearchPage = () => {
                     ))}
 
                 </div>
+                {currentPage < totalPages && (
+                    <div className="text-center mt-5">
+                        <Button text={"Mostra altri immobili"} onClick={incrementCurrentPageSearchPage} />
+                    </div>
+                )}
             </div>
         </>
     )
