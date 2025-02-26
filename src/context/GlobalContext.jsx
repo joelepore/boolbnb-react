@@ -16,6 +16,18 @@ const GlobalProvider = ({ children }) => {
     const [types, setTypes] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const [properties, setProperties] = useState([]);
+    const [filteredProperties, setFilteredProperties] = useState([]);
+
+    function fetchFilteredProperties() {
+        const { search, type, rooms, beds } = filterData;
+        let filteredUrl = `${api_url}/properties?limit=20&page=1&rooms=${rooms}&beds=${beds}`;
+        if (search) filteredUrl += `&search=${search}`;
+        if (type) filteredUrl += `&type=${type}`;
+        axios.get(filteredUrl)
+            .then(res => setFilteredProperties(res.data))
+            .catch(err => console.error(err))
+
+    }
 
     function fetchProperties() {
         axios.get(`${api_url}/properties?limit=20&page=1`) // Gestire limit e page in modo dinamico
@@ -43,7 +55,9 @@ const GlobalProvider = ({ children }) => {
         setIsSearching,
         fetchProperties,
         properties,
-        setProperties
+        setProperties,
+        fetchFilteredProperties,
+        filteredProperties
     }
 
 
