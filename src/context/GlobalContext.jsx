@@ -17,10 +17,12 @@ const GlobalProvider = ({ children }) => {
     const [isSearching, setIsSearching] = useState(false);
     const [properties, setProperties] = useState([]);
     const [filteredProperties, setFilteredProperties] = useState([]);
+    const [totalPages, setTotalPages] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
 
     function fetchFilteredProperties() {
         const { search, type, rooms, beds } = filterData;
-        let filteredUrl = `${api_url}/properties?limit=20&page=1&rooms=${rooms}&beds=${beds}`;
+        let filteredUrl = `${api_url}/properties?limit=8&page=1&rooms=${rooms}&beds=${beds}`;
         if (search) filteredUrl += `&search=${search}`;
         if (type) filteredUrl += `&type=${type}`;
         axios.get(filteredUrl)
@@ -39,8 +41,23 @@ const GlobalProvider = ({ children }) => {
     }
 
     function fetchProperties() {
-        axios.get(`${api_url}/properties?limit=20&page=1`) // Gestire limit e page in modo dinamico
-            .then(res => setProperties(res.data.results))
+        axios.get(`${api_url}/properties?limit=8&page=1`) // Gestire limit e page in modo dinamico
+            .then(res => {
+                setProperties(res.data.results)
+                setTotalPages(res.data.totalPages)
+            })
+            .catch(err => console.error(err))
+    }
+    // Funzione che viene scatenata al click del pulsante mostra altri immobili nella homepage
+    function incrementCurrentPage() {
+        setCurrentPage(prev => prev + 1);
+
+        const newPage = currentPage + 1;
+
+        axios.get(`${api_url}/properties?limit=8&page=${newPage}`) // Gestire limit e page in modo dinamico
+            .then(res => {
+                setProperties(prev => [...prev, ...res.data.results])
+            })
             .catch(err => console.error(err))
     }
 
@@ -53,6 +70,7 @@ const GlobalProvider = ({ children }) => {
         axios.get(`${api_url}/types`)
             .then(res => setTypes(res.data))
             .catch(err => console.err(err))
+
     }, [])
 
     const value = {
@@ -67,7 +85,11 @@ const GlobalProvider = ({ children }) => {
         setProperties,
         fetchFilteredProperties,
         filteredProperties,
-        updateLikes
+        updateLikes,
+        incrementCurrentPage,
+        currentPage,
+        setCurrentPage,
+        totalPages
     }
 
 
