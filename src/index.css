@@ -214,3 +214,14 @@ h4 {
     min-width: 425px;
   }
 }
+
+.footer-links {
+  flex-direction: column;
+  row-gap: 0.8rem;
+}
+
+@media screen and (min-width: 530px) {
+  .footer-links {
+    flex-direction: row;
+  }
+}
