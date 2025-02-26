@@ -194,7 +194,7 @@ h4 {
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 5px;
 }
 
