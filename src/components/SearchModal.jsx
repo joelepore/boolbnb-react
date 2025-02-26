@@ -3,9 +3,11 @@ import InputNumber from './InputNumber'
 import { useGlobalContext } from '../context/GlobalContext';
 import Button from './Button';
 import AccordionType from './AccordionType';
+import { useNavigate } from 'react-router-dom';
 
 const SearchModal = () => {
     const { filterData, setFilterData, resetModalFilterData, types, setIsSearching } = useGlobalContext();
+    const navigate = useNavigate();
 
     const handleSearchChange = (e) => {
         setFilterData(prev => ({ ...prev, search: e.target.value }))
@@ -20,6 +22,10 @@ const SearchModal = () => {
         if (e.target === e.currentTarget) {
             setIsSearching(false);
         }
+    }
+    const handleSearchClick = () => {
+        setIsSearching(false);
+        navigate('/search');
     }
     return (
         <div className='search-modal-overlay' onClick={handleCloseModal}>
@@ -46,7 +52,7 @@ const SearchModal = () => {
 
                 <div className='d-flex justify-content-between'>
                     <button className="button-link" onClick={resetModalFilterData}>Cancella</button>
-                    <Button text="Cerca immobili" onClick={() => setIsSearching(false)} />
+                    <Button text="Cerca immobili" onClick={handleSearchClick} />
                 </div>
             </div>
         </div>

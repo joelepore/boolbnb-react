@@ -2,11 +2,9 @@ import { Link, useNavigate } from "react-router-dom"
 import { useGlobalContext } from "../context/GlobalContext";
 
 const NavBar = () => {
-    const navigate = useNavigate();
     const { setIsSearching } = useGlobalContext();
 
     const handleSearchClick = () => {
-        navigate('/search');
         setIsSearching(true);
     }
 
