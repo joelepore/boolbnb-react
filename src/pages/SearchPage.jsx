@@ -18,7 +18,7 @@ const SearchPage = () => {
                         <div className="col" key={property.id}>
                             <Card name={property.title} indirizzo={property.address} details={true}
                                 stelline={property.average_vote} cuori={property.likes} arrayImg={property.images}
-                                coverImg={property.cover_img} stanze={property.rooms} letti={property.beds} metri={property.sqm} />
+                                coverImg={property.cover_img} stanze={property.rooms} letti={property.beds} metri={property.sqm} id={property.id} />
                         </div>
                     ))}
 

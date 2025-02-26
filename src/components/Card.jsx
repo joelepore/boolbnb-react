@@ -1,12 +1,12 @@
 import LikesButton from "./LikesButton"
 import ImgSlider from "./ImgSlider"
 
-const Card = ({ name, indirizzo, details, stanze, letti, metri, stelline, cuori, arrayImg, coverImg }) => {
+const Card = ({ name, indirizzo, details, stanze, letti, metri, stelline, cuori, arrayImg, coverImg, id }) => {
     return (
         <div className="card">
             <div className="swiper-likes-section position-relative">
                 <ImgSlider arrayImg={arrayImg} coverImg={coverImg} />
-                <LikesButton />
+                <LikesButton id={id} />
             </div>
 
 

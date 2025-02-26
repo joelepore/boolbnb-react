@@ -29,6 +29,15 @@ const GlobalProvider = ({ children }) => {
 
     }
 
+    function updateLikes(id) {
+        axios.patch(`${api_url}/properties/${id}`)
+            .then(res => {
+                fetchProperties()
+                fetchFilteredProperties()
+            })
+            .catch(err => console.error(err))
+    }
+
     function fetchProperties() {
         axios.get(`${api_url}/properties?limit=20&page=1`) // Gestire limit e page in modo dinamico
             .then(res => setProperties(res.data))
@@ -57,7 +66,8 @@ const GlobalProvider = ({ children }) => {
         properties,
         setProperties,
         fetchFilteredProperties,
-        filteredProperties
+        filteredProperties,
+        updateLikes
     }
 
 
