@@ -6,10 +6,11 @@ import SearchModal from "../components/SearchModal"
 
 const HomePage = () => {
 
-    const { fetchProperties, properties, isSearching } = useGlobalContext()
+    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages } = useGlobalContext()
 
     useEffect(() => {
         fetchProperties()
+        setCurrentPage(1);
     }, [])
 
     return (
@@ -29,6 +30,11 @@ const HomePage = () => {
                     ))}
 
                 </div>
+                {currentPage < totalPages && (
+                    <div className="text-center mt-5">
+                        <Button text={"Mostra altri immobili"} onClick={incrementCurrentPage} />
+                    </div>
+                )}
             </div>
         </>
     )
