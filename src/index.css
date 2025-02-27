@@ -22,7 +22,7 @@ body {
 }
 
 nav {
-  border-bottom: 1px solid #cfd1d3;
+  /* border-bottom: 1px solid #cfd1d3; */
   margin: auto 0;
   padding: 0.5rem 0.8rem;
 }
@@ -39,6 +39,22 @@ h4 {
 .logo-brand {
   text-decoration: none;
   color: #000028;
+}
+
+.btn-type {
+  border: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+}
+
+.type-logo {
+  max-width: 60px;
+}
+
+.types-menu {
+  border-bottom: 1px solid var(--bg-secondary);
+  padding-bottom: 20px;
 }
 
 .row.searchbar {
