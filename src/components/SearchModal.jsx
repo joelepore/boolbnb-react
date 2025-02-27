@@ -33,14 +33,14 @@ const SearchModal = () => {
         <div className='search-modal-overlay' onClick={handleCloseModal}>
 
             <div className='search-modal p-3 gap-3 rounded'>
-                <input
-                    type="text"
-                    placeholder='Città o indirizzo'
-                    className='text-center py-2 searchbar'
-                    onChange={handleSearchChange}
-                    value={filterData.search}
-                />
-                <AccordionType types={types} />
+                <div className='search-modal-heading align-items-center'>
+                    <div />
+                    <h2 className='text-center'>Filtri</h2>
+                    <i
+                        class="fa-solid fa-xmark justify-self-end cursor-pointer align-self-start"
+                        onClick={() => setIsSearching(false)}
+                    ></i>
+                </div>
                 <InputNumber
                     label="Numero stanze"
                     value={filterData.rooms}

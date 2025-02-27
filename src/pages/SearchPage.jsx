@@ -3,9 +3,14 @@ import { useGlobalContext } from "../context/GlobalContext"
 import Card from "../components/Card"
 import { useEffect } from "react";
 import Button from "../components/Button";
+import TypeButton from "../components/TypeButton";
 
 const SearchPage = () => {
-    const { isSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages } = useGlobalContext();
+    const { isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults } = useGlobalContext();
+
+    const handleButtonFilterClick = () => {
+        setIsSearching(true);
+    }
 
     useEffect(() => {
         setCurrentPage(1);
@@ -16,8 +21,14 @@ const SearchPage = () => {
 
             {isSearching && <SearchModal />}
             <div className="container">
-
-                {filteredProperties.length > 0 ? <h1 className="text-center py-3">Risultati della ricerca</h1> : <h1 className="text-center py-3">Nessun risultato trovato</h1>}
+                <div className="search-page-heading">
+                    <h4 className="total-results">Risultati totali: {totalResults}</h4>
+                    {filteredProperties.length > 0 ? <h1 className="text-center py-3 search-page-main-text">Risultati della ricerca</h1> : <h1 className="text-center py-3 search-page-main-text">Nessun risultato trovato</h1>}
+                    <button
+                        className="button-filter"
+                        onClick={handleButtonFilterClick}
+                    ><i class="fa-solid fa-sliders"></i> Filtri</button>
+                </div>
 
                 <div className="row row-cols-1 row-cols-xxl-4 row-cols-xl-3 row-cols-md-2 row-cols-sm-1 g-3 ">
                     {filteredProperties.map((property) => (
