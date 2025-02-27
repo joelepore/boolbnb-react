@@ -3,10 +3,11 @@ import Card from "../components/Card"
 import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import SearchModal from "../components/SearchModal"
+import TypesMenu from "../components/TypesMenu"
 
 const HomePage = () => {
 
-    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages } = useGlobalContext()
+    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
 
     useEffect(() => {
         fetchProperties()
@@ -15,6 +16,18 @@ const HomePage = () => {
 
     return (
         <>
+            <div className="types-menu d-flex justify-content-center my-3">
+                {types.map(type => (
+                    <TypesMenu
+                        key={type.id}
+                        text={type.name}
+                        path={type.icon_path}
+
+                    />
+                ))}
+            </div>
+
+
             {isSearching && <SearchModal />}
             <div className="container">
 
