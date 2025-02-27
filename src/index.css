@@ -110,6 +110,7 @@ h4 {
   background: var(--bg-accent);
   transform: scale(1.1);
   transition: transform 0.1s ease;
+  cursor: pointer;
 }
 
 .lente-ricerca:active {
