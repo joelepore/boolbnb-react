@@ -16,9 +16,9 @@ const InputNumber = ({ label, onChange, value }) => {
         <div className="text-center">
             <strong>{label}</strong>
             <div className="d-flex justify-content-center input-number mt-2 gap-3 align-items-center">
-                <button onClick={handleDecrement}>-</button>
+                <button className="input-number-button" onClick={handleDecrement}>-</button>
                 <strong>{value}</strong>
-                <button onClick={handleIncrement}>+</button>
+                <button className="input-number-button" onClick={handleIncrement}>+</button>
             </div>
         </div>
     )

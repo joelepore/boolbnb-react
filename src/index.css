@@ -31,6 +31,10 @@ h4 {
   color: #75787a;
 }
 
+.px-6 {
+  padding-inline: 5.5rem;
+}
+
 .logo {
   height: 40px;
   margin-right: 5px;
@@ -66,7 +70,7 @@ h4 {
 }
 
 .button-type {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border: 1px solid var(--text-primary);
   color: var(--text-primary);
 }
@@ -79,6 +83,12 @@ h4 {
 .button:active {
   transform: scale(0.95);
   opacity: 0.9;
+}
+
+.input-number-button:active {
+  background-color: var(--bg-accent);
+  color: var(--bg-primary);
+  transition: background-color 0.1s linear;
 }
 
 .card {
@@ -115,11 +125,12 @@ h4 {
 }
 
 .search-modal-overlay {
-  background-color: #000000cc;
+  background-color: #0000006e;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -132,7 +143,7 @@ h4 {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-secondary);
+  background-color: white;
 }
 
 .search-modal input,
