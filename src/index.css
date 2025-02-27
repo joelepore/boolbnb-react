@@ -73,17 +73,47 @@ h4 {
   padding-bottom: 20px;
 }
 
-.row.searchbar {
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px 5px;
-  color: #75787a;
-  font-style: italic;
-  cursor: pointer;
+.search-container {
+  position: relative;
 }
 
-.row.searchbar:hover {
-  background-color: #dbdcdfe8;
+.close-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.searchbar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  font-style: italic;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: 1px solid #0000005b;
+}
+
+.searchbar:focus {
+  outline: none;
+}
+
+.lente-ricerca {
+  background: var(--bg-accent);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--bg-primary);
+}
+
+.lente-ricerca:hover {
+  background: var(--bg-accent);
+  transform: scale(1.1);
+  transition: transform 0.1s ease;
+}
+
+.lente-ricerca:active {
+  transform: scale(0.9);
 }
 
 .button {
@@ -145,11 +175,6 @@ h4 {
 
 .button-link:hover {
   text-decoration: underline;
-}
-
-.searchbar {
-  border-radius: 2rem;
-  border: none;
 }
 
 .search-modal-overlay {
@@ -293,7 +318,7 @@ h4 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #003366;
+  background: #013f7e;
   border-radius: 5px;
   border: 2px solid white;
 }
