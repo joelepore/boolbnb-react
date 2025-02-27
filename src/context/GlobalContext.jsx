@@ -18,6 +18,7 @@ const GlobalProvider = ({ children }) => {
     const [properties, setProperties] = useState([]);
     const [filteredProperties, setFilteredProperties] = useState([]);
     const [totalPages, setTotalPages] = useState(null);
+    const [totalResults, setTotalResults] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
     function fetchFilteredProperties() {
@@ -29,6 +30,7 @@ const GlobalProvider = ({ children }) => {
             .then(res => {
                 setFilteredProperties(res.data.results);
                 setTotalPages(res.data.totalPages);
+                setTotalResults(res.data.totalResults);
             })
             .catch(err => console.error(err))
 
@@ -121,7 +123,8 @@ const GlobalProvider = ({ children }) => {
         currentPage,
         setCurrentPage,
         totalPages,
-        incrementCurrentPageSearchPage
+        incrementCurrentPageSearchPage,
+        totalResults
     }
 
 
