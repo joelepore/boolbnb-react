@@ -192,6 +192,53 @@ h4 {
   text-decoration: underline;
 }
 
+
+
+/*SLIDER*/
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: transparent !important;
+  font-size: 10px !important;
+  font-weight: bolder;
+}
+
+
+.custom-next,
+.custom-prev {
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  border-radius: 50%;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.10) !important;
+
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+  transform: scale(0.9) !important;
+}
+
+.card:hover .swiper-button-next,
+.card:hover .swiper-button-prev {
+  background-color: var(--bg-primary);
+}
+
+.card:hover .swiper-button-next::after,
+.card:hover .swiper-button-prev::after {
+  color: var(--bg-accent) !important;
+}
+
+
+/*======*/
+
+
 .search-modal-overlay {
   background-color: #0000006e;
   width: 100vw;

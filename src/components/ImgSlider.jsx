@@ -1,28 +1,30 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 import { Navigation } from 'swiper/modules';
-
 
 const ImgSlider = ({ arrayImg, coverImg }) => {
     return (
-        <>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                <SwiperSlide><img src={coverImg} alt="" className='card-img' /></SwiperSlide>
-                {arrayImg.map((img) => (
-                    <SwiperSlide key={img.id}>
-                        <img src={img.path} alt="img" className='card-img' />
-                    </SwiperSlide>
-                ))}
+        <Swiper
+            navigation={{
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+            }}
+            modules={[Navigation]}
+            className="mySwiper"
+        >
+            <SwiperSlide><img src={coverImg} alt="cover" className="card-img" /></SwiperSlide>
+            {arrayImg.map((img) => (
+                <SwiperSlide key={img.id}>
+                    <img src={img.path} alt="img" className="card-img" />
+                </SwiperSlide>
+            ))}
 
+            {/* Frecce personalizzate con stopPropagation */}
+            <div className="swiper-button-prev custom-prev" onClick={(e) => e.stopPropagation()}></div>
+            <div className="swiper-button-next custom-next" onClick={(e) => e.stopPropagation()}></div>
+        </Swiper>
+    );
+};
 
-            </Swiper>
-        </>
-    )
-}
-
-export default ImgSlider
+export default ImgSlider;
