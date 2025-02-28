@@ -14,7 +14,7 @@ const DetailPage = () => {
     useEffect(() => {
         fetchProperty(id)
 
-    }, [id])
+    }, [])
 
     const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const DetailPage = () => {
 
                 <div className="col-2 d-flex justify-content-end align-items-center">
                     <h1 className="m-0 position-relative">
-                        <LikesButton id={id} onClick={() => fetchProperty(id)} /> {property.likes}
+                        <LikesButton id={id} callback={() => fetchProperty(id)} /> {property.likes}
                     </h1>
                 </div>
             </div>
