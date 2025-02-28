@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 const HomePage = () => {
 
-    const { filteredData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
+    const { initialFilterData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
 
     const navigate = useNavigate();
 
