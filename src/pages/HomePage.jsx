@@ -13,8 +13,10 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchProperties()
+        fetchProperties();
         setCurrentPage(1);
+        setFilterData(initialFilterData)
+
     }, [])
 
     const handleClick = (id) => {

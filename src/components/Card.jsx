@@ -1,9 +1,14 @@
 import LikesButton from "./LikesButton"
 import ImgSlider from "./ImgSlider"
+import { useNavigate } from "react-router-dom"
 
 const Card = ({ name, indirizzo, details, stanze, letti, metri, stelline, cuori, arrayImg, coverImg, id, bagni }) => {
+
+    const navigate = useNavigate()
+
     return (
-        <div className="card">
+
+        < div className="card" onClick={() => navigate(`/property/${id}`)} >
             <div className="swiper-likes-section position-relative">
                 <ImgSlider arrayImg={arrayImg} coverImg={coverImg} />
                 <LikesButton id={id} />
