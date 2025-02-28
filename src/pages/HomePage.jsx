@@ -4,25 +4,33 @@ import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import SearchModal from "../components/SearchModal"
 import TypesMenu from "../components/TypesMenu"
+import { useNavigate } from "react-router-dom"
 
 const HomePage = () => {
 
-    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
+    const { filteredData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchProperties()
         setCurrentPage(1);
     }, [])
 
+    const handleClick = (id) => {
+        setFilterData(prev => ({ ...prev, type: id }));
+        navigate('/search')
+    }
+
     return (
         <>
-            <div className="types-menu d-flex justify-content-center my-3">
+            <div className="types-menu d-flex justify-content-center mb-3">
                 {types.map(type => (
                     <TypesMenu
                         key={type.id}
                         text={type.name}
                         path={type.icon_path}
-
+                        onClick={() => handleClick(type.id)}
                     />
                 ))}
             </div>

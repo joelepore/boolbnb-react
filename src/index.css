@@ -61,11 +61,12 @@ h4 {
   border: none;
   background: var(--bg-primary);
   color: var(--text-primary);
-
+  cursor: pointer;
+  font-family: 'Instrument Sans'
 }
 
 .type-logo {
-  max-width: 60px;
+  max-width: 50px;
 }
 
 .types-menu {
