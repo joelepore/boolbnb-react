@@ -149,6 +149,11 @@ h4 {
   opacity: 0.9;
 }
 
+.button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
 .input-number-button:active {
   background-color: var(--bg-accent);
   color: var(--bg-primary);
