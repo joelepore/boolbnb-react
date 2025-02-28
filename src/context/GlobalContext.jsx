@@ -12,6 +12,24 @@ const GlobalProvider = ({ children }) => {
         rooms: 1,
         beds: 1
     }
+
+    const initialProperty = {
+        id: 0,
+        titolo: '',
+        rooms: 0,
+        beds: 0,
+        bathrooms: 0,
+        sqm: 0,
+        address: '',
+        description: '',
+        likes: 0,
+        proprietario: '',
+        type: '',
+        recensioni: [],
+        cover_img: '',
+        images: [],
+    }
+
     const [filterData, setFilterData] = useState(initialFilterData);
     const [types, setTypes] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
@@ -20,6 +38,16 @@ const GlobalProvider = ({ children }) => {
     const [totalPages, setTotalPages] = useState(null);
     const [totalResults, setTotalResults] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const [property, setProperty] = useState(initialProperty); //var di stato per la gestione del render della pagina dettaglio
+
+
+    function fetchProperty(id) {
+        axios.get(`${api_url}/properties/${id}`)
+            .then(res => setProperty(res.data))
+            .catch(err => console.error(err))
+    }
+
+    //un funzione di fetch che raccolga le info dell'immobile in base all'id e le recensioni (Rotta show)
 
     function fetchFilteredProperties() {
         const { search, type, rooms, beds } = filterData;
@@ -129,7 +157,10 @@ const GlobalProvider = ({ children }) => {
         totalPages,
         incrementCurrentPageSearchPage,
         totalResults,
-        initialFilterData
+        initialFilterData,
+        property,
+        setProperty,
+        fetchProperty,
     }
 
 
