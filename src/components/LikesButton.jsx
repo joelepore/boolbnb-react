@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../context/GlobalContext";
 
-const LikesButton = ({ id }) => {
+const LikesButton = ({ id, callback }) => {
 
     const { updateLikes } = useGlobalContext();
 
@@ -8,7 +8,12 @@ const LikesButton = ({ id }) => {
     return (
         <button
             className="heart-button z-3"
-            onClick={() => updateLikes(id)}>
+            onClick={(e) => {
+                e.stopPropagation()
+                updateLikes(id)
+                callback()
+            }
+            } >
             <i className="fa-solid fa-heart"></i>
         </button>
     );

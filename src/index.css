@@ -311,7 +311,7 @@ h4 {
   justify-content: center;
 }
 
-.heart-button {
+.card .heart-button {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -325,6 +325,28 @@ h4 {
   cursor: pointer;
   border: none;
   transition: transform 0.3s ease-in-out;
+}
+
+.details-container .heart-button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  font-size: 25px;
+  color: red;
+  background-color: transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding-right: 50px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.details-img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 100%;
 }
 
 .heart-button:hover {
