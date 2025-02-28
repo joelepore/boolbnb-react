@@ -65,6 +65,14 @@ h4 {
   font-family: 'Instrument Sans'
 }
 
+.btn-type:active {
+  transform: scale(0.95) !important;
+}
+
+.btn-type:hover {
+  transform: scale(1.05);
+}
+
 .type-logo {
   max-width: 50px;
 }
@@ -134,23 +142,11 @@ h4 {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.button-type {
-  background-color: var(--bg-primary);
-  border: 1px solid var(--text-primary);
-  color: var(--text-primary);
-}
-
-.button-type-active {
-  background-color: var(--bg-accent);
-  color: var(--bg-primary);
-}
 
 .button:active {
-  transform: scale(0.95);
+  transform: scale(0.95) !important;
   opacity: 0.9;
 }
-
-/* NON FUNZIONA IL TRANSFORM AL CLICK DEL BTN. DA SISTEMARE */
 
 .button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
