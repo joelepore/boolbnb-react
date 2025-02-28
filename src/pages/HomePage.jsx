@@ -7,11 +7,13 @@ import TypesMenu from "../components/TypesMenu"
 
 const HomePage = () => {
 
-    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
+    const { fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types, setFilterData, initialFilterData } = useGlobalContext()
 
     useEffect(() => {
-        fetchProperties()
+        fetchProperties();
         setCurrentPage(1);
+        setFilterData(initialFilterData)
+
     }, [])
 
     return (

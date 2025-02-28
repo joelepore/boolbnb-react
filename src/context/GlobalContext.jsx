@@ -124,7 +124,8 @@ const GlobalProvider = ({ children }) => {
         setCurrentPage,
         totalPages,
         incrementCurrentPageSearchPage,
-        totalResults
+        totalResults,
+        initialFilterData
     }
 
 

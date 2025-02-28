@@ -27,7 +27,7 @@ const SearchPage = () => {
                     <button
                         className="button-filter"
                         onClick={handleButtonFilterClick}
-                    ><i class="fa-solid fa-sliders"></i> Filtri</button>
+                    ><i className="fa-solid fa-sliders"></i> Filtri</button>
                 </div>
 
                 <div className="row row-cols-1 row-cols-xxl-4 row-cols-xl-3 row-cols-md-2 row-cols-sm-1 g-3 ">
