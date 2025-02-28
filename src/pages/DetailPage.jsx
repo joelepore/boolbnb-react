@@ -57,14 +57,14 @@ const DetailPage = () => {
                     </div>
                 </div>
                 <div className="col-3 d-flex gap-3 flex-column">
-                    <p>INSERIRE STELLINE</p>
+                    {averageVote && <Stars vote={averageVote} />}
                     <p><i className="fa-solid fa-heart text-danger px-2"></i>{property.likes}</p>
                     <Button className="" text={"Contatta proprietario"} />
                 </div>
 
             </div>
             <div className="col-12 mt-5">{property.description}</div>
-            <div className="col-12 mt-5">x</div>
+            <div className="col-12 mt-5">INSERIRE RECENSIONE</div>
         </div>
 
     )
