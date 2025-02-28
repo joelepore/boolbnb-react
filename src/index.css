@@ -404,6 +404,16 @@ h4 {
   border: 1px solid var(--bg-accent);
 }
 
+.rev-card {
+  min-height: 170px;
+}
+
+.rev-utente {
+  width: 80%;
+}
+
+
+
 ::-webkit-scrollbar {
   width: 10px;
 }
