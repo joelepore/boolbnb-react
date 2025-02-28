@@ -19,7 +19,7 @@ const NavBar = () => {
             <div className="container-fluid">
                 <div className="row">
 
-                    <div className="col-6 col-md-3 d-flex align-items-center my-3">
+                    <div className="col-6 col-md-3 d-flex align-items-center ">
 
                         <Link to="/" className="d-flex align-items-center logo-brand">
                             <img className="logo" src="Logo_prova.png" alt="Logo" />

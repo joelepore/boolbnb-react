@@ -106,6 +106,10 @@ const GlobalProvider = ({ children }) => {
 
     }, [])
 
+    useEffect(() => {
+        fetchFilteredProperties()
+    }, [filterData.type])
+
     const value = {
         filterData,
         setFilterData,

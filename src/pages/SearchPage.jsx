@@ -4,9 +4,13 @@ import Card from "../components/Card"
 import { useEffect } from "react";
 import Button from "../components/Button";
 import TypeButton from "../components/TypeButton";
+import { useNavigate } from "react-router-dom";
+import TypesMenu from "../components/TypesMenu"
 
 const SearchPage = () => {
-    const { isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults } = useGlobalContext();
+    const { setFilterData, isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults, types } = useGlobalContext();
+
+    const navigate = useNavigate();
 
     const handleButtonFilterClick = () => {
         setIsSearching(true);
@@ -16,8 +20,23 @@ const SearchPage = () => {
         setCurrentPage(1);
     }, [])
 
+    const handleClick = (id) => {
+        setFilterData(prev => ({ ...prev, type: id }));
+        navigate('/search')
+    }
+
     return (
         <>
+            <div className="types-menu d-flex justify-content-center mb-3">
+                {types.map(type => (
+                    <TypesMenu
+                        key={type.id}
+                        text={type.name}
+                        path={type.icon_path}
+                        onClick={() => handleClick(type.id)}
+                    />
+                ))}
+            </div>
 
             {isSearching && <SearchModal />}
             <div className="container">
