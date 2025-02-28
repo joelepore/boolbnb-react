@@ -29,6 +29,7 @@ const GlobalProvider = ({ children }) => {
         reviews: [],
         cover_img: '',
         images: [],
+        average_vote: ''
     }
 
     const [filterData, setFilterData] = useState(initialFilterData);

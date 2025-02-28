@@ -347,8 +347,16 @@ h4 {
   align-items: center;
 }
 
+.star-bottom {
+  width: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .star-top {
   overflow: hidden;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .button-filter {
