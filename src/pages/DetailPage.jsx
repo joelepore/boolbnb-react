@@ -1,6 +1,21 @@
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { useGlobalContext } from "../context/GlobalContext"
+import { useNavigate } from "react-router-dom"
 
 
 const DetailPage = () => {
+
+    const { id } = useParams();
+    const { fetchProperty, property } = useGlobalContext();
+
+    useEffect(() => {
+        fetchProperty(id)
+
+    }, [])
+
+    const navigate = useNavigate()
+
     return (
         <div>
             <h1 className='text-center'>Detail Page</h1>

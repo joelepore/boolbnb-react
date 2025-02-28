@@ -15,7 +15,7 @@ const GlobalProvider = ({ children }) => {
 
     const initialProperty = {
         id: 0,
-        titolo: '',
+        title: '',
         rooms: 0,
         beds: 0,
         bathrooms: 0,
@@ -23,9 +23,10 @@ const GlobalProvider = ({ children }) => {
         address: '',
         description: '',
         likes: 0,
-        proprietario: '',
+        owner_fullname: '',
+        type_id: 0,
         type: '',
-        recensioni: [],
+        reviews: [],
         cover_img: '',
         images: [],
     }
