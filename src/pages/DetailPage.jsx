@@ -1,9 +1,26 @@
+import Stars from "../components/Stars"
 
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { useGlobalContext } from "../context/GlobalContext"
+import { useNavigate } from "react-router-dom"
 
 const DetailPage = () => {
+
+    const { id } = useParams();
+    const { fetchProperty, property } = useGlobalContext();
+
+    useEffect(() => {
+        fetchProperty(id)
+
+    }, [])
+
+    const navigate = useNavigate()
+
     return (
         <div>
             <h1 className='text-center'>Detail Page</h1>
+            <Stars vote={property.average_vote} />
             {/* Img di copertina con gallery affiancata CLICCANDO LE IMG APRE UN VISUALIZZATORE DI IMG */}
             {/* div dei dettagli che al suo interno ha le info dell'immobile e i COMPONENTI delle stelline e il cuore */}
             {/* componente slider rewiev che contiene il componente di rewievcard */}
