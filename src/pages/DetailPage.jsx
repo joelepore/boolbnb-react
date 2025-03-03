@@ -123,7 +123,13 @@ const DetailPage = () => {
 
             <div className="container bg-white mt-5 p-3 shadow">
                 <h1 className="mt-2 mb-3">Recensioni</h1>
-                <ReviewSlider review={property.reviews} />
+                {property.reviews.length > 0 ? <ReviewSlider review={property.reviews} /> :
+                    <div>
+                        <h2 className="text-center py-3 ">Nessuna recensione trovata</h2>
+                        <h4 className="text-center py-3 ">Hai soggiornato qui? Inserisci la prima recensione per questo immobile e raccontaci la tua esperienza!</h4>
+                    </div>
+                }
+
             </div>
 
             <div className="container bg-white mt-2 p-3 pb-4 shadow">

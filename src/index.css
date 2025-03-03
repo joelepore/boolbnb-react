@@ -398,12 +398,14 @@ h4 {
   width: fit-content;
   overflow: hidden;
   white-space: nowrap;
+  color: #888888;
 }
 
 .star-top {
   overflow: hidden;
   width: fit-content;
   white-space: nowrap;
+  color: #ffa723;
 }
 
 .button-filter {
@@ -433,10 +435,10 @@ h4 {
   min-height: 170px;
 }
 
-.rev-utente {
-  width: 80%;
+.fs-7 {
+  font-size: 0.8rem;
+  padding-top: 5px;
 }
-
 
 .form-property {
   margin: 1rem 0;
