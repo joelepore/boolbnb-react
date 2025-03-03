@@ -43,8 +43,16 @@ h4 {
   cursor: pointer;
 }
 
+.max-w-md {
+  max-width: 523px;
+}
+
 .align-self-start {
   align-self: self-start;
+}
+
+.img-fluid {
+  width: 100%;
 }
 
 .logo {
@@ -368,6 +376,23 @@ h4 {
 
 .button-filter:hover {
   border: 1px solid var(--bg-accent);
+}
+
+.form-property {
+  margin: 1rem 0;
+}
+
+.input-property {
+  width: 100%;
+  font-family: 'Instrument Sans';
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--bg-secondary);
+  margin-top: 0.3rem;
+}
+
+label[for^="input-property"] {
+  font-weight: bold;
 }
 
 ::-webkit-scrollbar {
