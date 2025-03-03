@@ -62,7 +62,11 @@ const AddReview = ({ id }) => {
                         className="input-reviews"
                         value={reviewData.author}
                         name="author"
-                        onChange={setFieldValue}
+                        onChange={(e) => {
+                            const value = e.target.value.replace(/[^A-Za-zÀ-ÿ\s-]/g, "");
+                            setFieldValue({ target: { name: "author", value } });
+                        }}
+                        pattern="^[A-Za-zÀ-ÿ\s-]+$"
                         required
                     />
                 </div>
@@ -77,11 +81,12 @@ const AddReview = ({ id }) => {
                             value={reviewData.date}
                             name="date"
                             onChange={setFieldValue}
+                            max={new Date().toISOString().split("T")[0]}
                             required
                         />
                     </div>
-
                 </div>
+
 
                 <div className="row">
                     <div className="mb-3 mt-3">
