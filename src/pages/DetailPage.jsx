@@ -61,7 +61,9 @@ const DetailPage = () => {
                     <div className="col-3 d-flex gap-3 flex-column">
                         {averageVote && <Stars vote={averageVote} />}
                         <p><i className="fa-solid fa-heart text-danger px-2"></i>{property.likes}</p>
-                        <Button className="" text={"Contatta proprietario"} />
+                        <Button onClick={() => window.location.href = `mailto:${property.email}?subject=BoolB&B:%20Richiesta%20Informazioni&body=Salve%20${property.owner_fullname},%20vorrei%20informazioni%20sull'immobile%20${property.title}`}
+                            text={"Contatta proprietario"} />
+
                     </div>
 
                 </div>
