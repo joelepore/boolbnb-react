@@ -216,6 +216,7 @@ const AddPropertyPage = () => {
                             value={propertyData.description}
                             onChange={handleInputTextChange}
                             name='description'
+                            maxLength={500}
                         >
                         </textarea>
                         {validationData.description && <small className="text-danger">La descrizione deve avere almeno 10 caratteri.</small>}
@@ -277,6 +278,7 @@ const AddPropertyPage = () => {
                             value={propertyData.sqm}
                             onChange={handleInputTextChange}
                             name="sqm"
+                            min={10}
                         />
                         {validationData.sqm && <small className="text-danger">Il numero di metri quadri non è valido </small>}
                     </div>
