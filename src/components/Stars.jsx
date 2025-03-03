@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Stars = ({ vote }) => {
+const Stars = ({ vote, className }) => {
     const value = vote * 2 * 10
     return (
-        <div className='w-100'>
+        <div className={`w-100 ${className}`}>
             <div className="position-relative star-bottom">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
