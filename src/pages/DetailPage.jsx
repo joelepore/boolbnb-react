@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import LikesButton from "../components/LikesButton"
 import Button from "../components/Button"
 import ReviewSlider from "../components/ReviewSlider"
+import AddReview from "../components/AddReview"
 
 const DetailPage = () => {
 
@@ -25,7 +26,7 @@ const DetailPage = () => {
 
     return (
         <>
-            <div className="container details-container bg-white p-3">
+            <div className="container details-container bg-white p-3 shadow">
                 <div className="row align-items-center">
                     <div className="col-10">
                         <h1 className="">{property.title}</h1>
@@ -70,9 +71,14 @@ const DetailPage = () => {
                 <div className="col-12 mt-5">{property.description}</div>
             </div>
 
-            <div className="container bg-white my-3 p-3 pb-4">
+            <div className="container bg-white my-3 p-3 pb-4 shadow">
                 <h1 className="mt-2 mb-3">Recensioni</h1>
                 <ReviewSlider review={property.reviews} />
+            </div>
+
+            <div className="container bg-white my-3 p-3 pb-4 shadow">
+                <h1 className="mt-2 mb-3"> Aggiungi una recensione </h1>
+                <AddReview id={property.id} />
             </div>
         </>
 
@@ -81,7 +87,4 @@ const DetailPage = () => {
 
 export default DetailPage
 {/* Img di copertina con gallery affiancata CLICCANDO LE IMG APRE UN VISUALIZZATORE DI IMG */ }
-{/* div dei dettagli che al suo interno ha le info dell'immobile e i COMPONENTI delle stelline e il cuore */ }
-{/* componente slider rewiev che contiene il componente di rewievcard */ }
-{/* pulsante per contattare il proprietario (Apre il componente del modal di contatto) */ }
 {/* Form di recensione */ }
