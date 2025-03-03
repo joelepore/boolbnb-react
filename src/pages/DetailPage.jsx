@@ -26,7 +26,8 @@ const DetailPage = () => {
 
     return (
         <>
-            <div className="container details-container bg-white p-3 shadow">
+
+            <div className="container details-container bg-white p-3 mb-2 shadow">
                 <div className="row align-items-center">
                     <div className="col-10">
                         <h1 className="">{property.title}</h1>
@@ -38,8 +39,54 @@ const DetailPage = () => {
                         </h1>
                     </div>
                 </div>
+                <div className="col-12 pt-2"><span>{averageVote && <Stars vote={averageVote} />}</span></div>
+            </div>
 
-                <div className="details-container-img d-flex justify-content-center mt-4 py-3 bg-body-secondary">
+            <div className="container details-container bg-white shadow">
+
+                <div className="row py-3">
+
+                    <div className="col-7">
+                        <img src={property?.cover_img} alt="cover_img" className="w-100" />
+                    </div>
+                    <div className="col-5 d-flex flex-column">
+
+                        <div className="d-flex flex-column">
+                            <h2 className="text-truncate pb-1">{property?.address}</h2>
+
+                            <p className="py-4">
+                                <strong>Descrizione:</strong> <br /> {property.description}
+                            </p>
+
+
+                            <h3 className="mt-2">Dettagli:</h3>
+                            <p>{property.sqm} - m²</p>
+                            <p><i className="fa-solid fa-door-open"></i> {property.rooms} - Stanze</p>
+                            <p><i className="fa-solid fa-bed"></i> {property.beds} - Letti</p>
+                            <p><i className="fa-solid fa-bath"></i> {property.bathrooms} - Bagni</p>
+
+
+
+                        </div>
+
+                        <div className="py-2 mt-auto">
+                            <p className="text-muted mb-1"><strong>Proprietario:</strong> {property?.owner_fullname}</p>
+                            <p className="text-muted mb-3"><strong>Email:</strong> {property?.email}</p>
+                            <Button
+                                onClick={() => window.location.href = `mailto:${property.email}?subject=BoolB&B:%20Richiesta%20Informazioni&body=Salve%20${property.owner_fullname},%20vorrei%20informazioni%20sull'immobile%20${property.title}`}
+                                text={"Contatta proprietario"}
+                            />
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                {/* ============================ */}
+
+                {/* <div className="details-container-img d-flex justify-content-center mt-4 py-3 bg-body-secondary">
                     <img src={property?.cover_img} alt="property.img" className="details-img" />
                 </div>
 
@@ -68,15 +115,18 @@ const DetailPage = () => {
                     </div>
 
                 </div>
-                <div className="col-12 mt-5">{property.description}</div>
+                <div className="col-12 mt-5">{property.description}</div> */}
+
+                {/* ============================ */}
+
             </div>
 
-            <div className="container bg-white my-3 p-3 pb-4 shadow">
+            <div className="container bg-white mt-5 p-3 shadow">
                 <h1 className="mt-2 mb-3">Recensioni</h1>
                 <ReviewSlider review={property.reviews} />
             </div>
 
-            <div className="container bg-white my-3 p-3 pb-4 shadow">
+            <div className="container bg-white mt-2 p-3 pb-4 shadow">
                 <h1 className="mt-2 mb-3"> Aggiungi una recensione </h1>
                 <AddReview id={property.id} />
             </div>
@@ -86,5 +136,3 @@ const DetailPage = () => {
 }
 
 export default DetailPage
-{/* Img di copertina con gallery affiancata CLICCANDO LE IMG APRE UN VISUALIZZATORE DI IMG */ }
-{/* Form di recensione */ }
