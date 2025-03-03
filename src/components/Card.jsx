@@ -24,7 +24,7 @@ const Card = ({ name, indirizzo, details, stanze, letti, metri, stelline, cuori,
                     </p>
                 </div>
                 <div className="col-3 d-flex flex-column gap-3">
-                    <span><i className="text-warning fa-solid fa-star pe-1"></i><small>{stelline}</small></span>
+                    <span><i className="text-warning fa-solid fa-star pe-1"></i><small>{stelline ? stelline : '-'}</small></span>
                     <span><i className="text-danger fa-solid fa-heart pe-1"></i><small>{cuori}</small></span>
                 </div>
             </div>
