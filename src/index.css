@@ -75,11 +75,12 @@ h4 {
 }
 
 .btn-type {
-  border: none;
+  border: 2px solid transparent;
   background: var(--bg-primary);
   color: var(--text-primary);
   cursor: pointer;
-  font-family: 'Instrument Sans'
+  font-family: 'Instrument Sans';
+  padding-bottom: 5px;
 }
 
 .btn-type:active {
@@ -88,6 +89,10 @@ h4 {
 
 .btn-type:hover {
   transform: scale(1.05);
+}
+
+.btn-type.active {
+  border-bottom: 2px solid var(--bg-accent);
 }
 
 .type-logo {
