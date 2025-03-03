@@ -14,7 +14,7 @@ const AddReview = ({ id }) => {
     const initialReviewData = {
         author: "",
         text: "",
-        date: 0,
+        date: "1990-01-01",
         days: 1,
         vote: 1
     }
@@ -46,6 +46,8 @@ const AddReview = ({ id }) => {
     const setFieldValue = (e) => {
         const { value, name } = e.target
         setReviewData((prev => ({ ...prev, [name]: value })))
+        console.log(value);
+
 
     }
 

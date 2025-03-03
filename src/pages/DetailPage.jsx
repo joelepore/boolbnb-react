@@ -40,7 +40,7 @@ const DetailPage = () => {
                 </div>
 
                 <div className="details-container-img d-flex justify-content-center mt-4 py-3 bg-body-secondary">
-                    <img src={property.cover_img} alt="property.img" className="details-img" />
+                    <img src={property?.cover_img} alt="property.img" className="details-img" />
                 </div>
 
                 <div className="row mt-5 d-flex">

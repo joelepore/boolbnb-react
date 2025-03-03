@@ -11,7 +11,9 @@ const LikesButton = ({ id, callback }) => {
             onClick={(e) => {
                 e.stopPropagation()
                 updateLikes(id)
-                callback()
+                if (callback) {
+                    callback()
+                }
             }
             } >
             <i className="fa-solid fa-heart"></i>
