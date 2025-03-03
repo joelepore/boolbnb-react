@@ -30,6 +30,7 @@ const SearchPage = () => {
             <div className="types-menu d-flex justify-content-center mb-3">
                 {types.map(type => (
                     <TypesMenu
+                        id={type.id}
                         key={type.id}
                         text={type.name}
                         path={type.icon_path}
