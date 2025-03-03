@@ -389,12 +389,14 @@ h4 {
   width: fit-content;
   overflow: hidden;
   white-space: nowrap;
+  color: #888888;
 }
 
 .star-top {
   overflow: hidden;
   width: fit-content;
   white-space: nowrap;
+  color: #ffa723;
 }
 
 .button-filter {
