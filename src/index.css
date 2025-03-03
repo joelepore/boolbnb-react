@@ -12,7 +12,8 @@
   --text-primary: #000028;
   --text-secondary: #00183b;
   --bg-accent: #00183b;
-
+  --nav-height: 113px;
+  --nav-height-mobile: 181px;
 }
 
 body {
@@ -25,6 +26,14 @@ nav {
   /* border-bottom: 1px solid #cfd1d3; */
   margin: auto 0;
   padding: 0.5rem 0.8rem;
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+  background-color: var(--bg-primary);
+}
+
+main {
+  padding-top: var(--nav-height-mobile);
 }
 
 h4 {
@@ -491,5 +500,11 @@ label[for^="input-property"] {
 @media screen and (min-width: 530px) {
   .footer-links {
     flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  main {
+    padding-top: var(--nav-height);
   }
 }
