@@ -40,7 +40,7 @@ const SearchPage = () => {
 
             {isSearching && <SearchModal />}
             <div className="container">
-                <div className="search-page-heading">
+                <div className="search-page-heading my-2">
                     <h4 className="total-results">Risultati totali: {totalResults}</h4>
                     {filteredProperties.length > 0 ? <h1 className="text-center py-3 search-page-main-text">Risultati della ricerca</h1> : <h1 className="text-center py-3 search-page-main-text">Nessun risultato trovato</h1>}
                     <button
