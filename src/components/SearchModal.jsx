@@ -37,7 +37,7 @@ const SearchModal = () => {
                     <div />
                     <h2 className='text-center'>Filtri</h2>
                     <i
-                        class="fa-solid fa-xmark justify-self-end cursor-pointer align-self-start"
+                        className="fa-solid fa-xmark justify-self-end cursor-pointer align-self-start"
                         onClick={() => setIsSearching(false)}
                     ></i>
                 </div>

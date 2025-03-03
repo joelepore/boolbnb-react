@@ -433,6 +433,15 @@ h4 {
   background: #002244;
 }
 
+.input-reviews {
+  width: 100%;
+  font-family: 'Instrument Sans';
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--bg-secondary);
+  margin-top: 0.3rem;
+}
+
 
 @media screen and (min-width: 426px) {
   .search-modal {
