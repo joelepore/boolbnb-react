@@ -62,7 +62,7 @@ const NavBar = () => {
 
 
                     <div className="col-6 col-md-3 d-flex justify-content-end align-items-center order-1 order-md-3 my-3">
-                        <Button text={"Aggiungi immobile"} onClick={""} />
+                        <Button text={"Aggiungi immobile"} onClick={() => navigate('/property/add')} />
                     </div>
                 </div>
             </div>
