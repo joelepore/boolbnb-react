@@ -83,7 +83,7 @@ const DetailPage = () => {
                             <p className="text-muted mb-1"><strong>Proprietario:</strong> {property?.owner_fullname}</p>
                             <p className="text-muted mb-3"><strong>Email:</strong> {property?.email}</p>
                             <Button
-                                onClick={() => window.location.href = `mailto:${property.email}?subject=BoolB&B:%20Richiesta%20Informazioni&body=Salve%20${property.owner_fullname},%20vorrei%20informazioni%20sull'immobile%20${property.title}`}
+                                onClick={() => window.location.href = `mailto:${property.email}?subject=BoolBnB:%20Richiesta%20Informazioni&body=Salve%20${property.owner_fullname},%20vorrei%20informazioni%20sull'immobile%20${property.title}`}
                                 text={"Contatta proprietario"}
                             />
                         </div>
