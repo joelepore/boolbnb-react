@@ -14,7 +14,7 @@ const AddReview = ({ id }) => {
     const initialReviewData = {
         author: "",
         text: "",
-        date: "1990-01-01",
+        date: new Date().toISOString().split("T")[0],
         days: 1,
         vote: 1
     }
@@ -44,13 +44,18 @@ const AddReview = ({ id }) => {
 
 
     const setFieldValue = (e) => {
-        const { value, name } = e.target
-        setReviewData((prev => ({ ...prev, [name]: value })))
-        console.log(value);
+        const { name, value } = e.target;
 
+        if (name === "days") {
+            const arrivalDate = new Date(reviewData.date);
+            const today = new Date();
+            const maxDays = Math.ceil((today - arrivalDate) / (1000 * 60 * 60 * 24)); // Giorni massimi possibili
 
-    }
+            if (value > maxDays) return; // Impedisce di superare il limite
+        }
 
+        setReviewData((prev) => ({ ...prev, [name]: value }));
+    };
 
     return (
         <div className="container">
