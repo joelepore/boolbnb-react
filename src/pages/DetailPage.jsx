@@ -12,10 +12,11 @@ import ImgSlider from "../components/ImgSlider"
 const DetailPage = () => {
 
     const { id } = useParams();
-    const { fetchProperty, property, properties } = useGlobalContext();
+    const { fetchProperty, property, properties, setProperty } = useGlobalContext();
 
     useEffect(() => {
         fetchProperty(id)
+        window.scrollTo(0, 0)
 
     }, [])
 
@@ -36,7 +37,7 @@ const DetailPage = () => {
 
                     <div className="col-lg-2 col-12 justify-content-lg-end d-flex align-items-center">
                         <h1 className="m-0 position-relative">
-                            <LikesButton id={id} callback={() => fetchProperty(id)} /> {property.likes}
+                            <LikesButton id={id} callback={() => setProperty(prev => ({ ...prev, likes: prev.likes + 1 }))} /> {property.likes}
                         </h1>
                     </div>
                 </div>

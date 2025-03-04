@@ -16,7 +16,10 @@ const LikesButton = ({ id, callback }) => {
                 }
             }
             } >
-            <i className="fa-solid fa-heart"></i>
+            <div className="position-relative">
+                <i className="fa-solid fa-heart cuore-sotto"></i>
+                <i className="fa-regular fa-heart cuore-sopra"></i>
+            </div>
         </button>
     );
 };

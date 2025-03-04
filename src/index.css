@@ -12,6 +12,7 @@
   --text-primary: #000028;
   --text-secondary: #00183b;
   --bg-accent: #00183b;
+  --bg-navbar: #e8ebf0;
   --nav-height: 113px;
   --nav-height-mobile: 181px;
 }
@@ -29,7 +30,7 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 500;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-navbar);
 }
 
 main {
@@ -363,12 +364,24 @@ h4 {
   justify-content: center;
 }
 
+/*================================*/
+
+.card .cuore-sopra {
+  position: absolute;
+  color: white;
+  top: 1px;
+  left: 0px;
+}
+
+.card .cuore-sotto {
+  color: rgba(0, 0, 0, 0.700);
+}
+
 .card .heart-button {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 25px;
-  color: red;
   background-color: transparent;
   border-radius: 50%;
   width: 40px;
@@ -377,6 +390,29 @@ h4 {
   cursor: pointer;
   border: none;
   transition: transform 0.3s ease-in-out;
+}
+
+.card .heart-button:hover .cuore-sopra,
+.card .heart-button:hover .cuore-sotto {
+  cursor: pointer;
+  border: none;
+  transform: scale(1.3);
+  color: red;
+  transition: transform 0.3s ease-in-out, color 0.1s ease-in-out;
+}
+
+.card .heart-button:active .cuore-sopra,
+.card .heart-button:active .cuore-sotto {
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
+  opacity: 0.7;
+}
+
+
+/*================================*/
+
+.details-container .cuore-sopra {
+  display: none;
 }
 
 .details-container .heart-button {
@@ -389,24 +425,31 @@ h4 {
   transition: transform 0.3s ease-in-out;
 }
 
+.details-container .heart-button:hover .cuore-sotto {
+  color: red;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.details-container .heart-button:active .cuore-sotto {
+  transform: scale(1.3);
+  transition: transform 0.1s ease-in-out;
+  opacity: 0.7;
+}
+
+/*================================*/
+
 .details-img {
   aspect-ratio: 16/9;
   object-fit: cover;
   width: 100%;
 }
 
-.heart-button:hover {
-  transform: scale(1.2);
-}
-
 .swiper-likes-section {
   position: relative;
   width: 100%;
-}
-
-.heart-button:active {
-  transform: scale(0.95);
-  opacity: 0.9;
 }
 
 .search-page-heading {
