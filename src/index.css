@@ -40,6 +40,17 @@ h4 {
   color: #75787a;
 }
 
+
+.custm-w .swiper-wrapper {
+  justify-content: center !important;
+  gap: 8%;
+}
+
+.swiper-slide {
+  width: fit-content !important;
+}
+
+
 .px-6 {
   padding-inline: 5.5rem;
 }
