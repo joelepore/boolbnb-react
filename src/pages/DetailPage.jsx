@@ -7,11 +7,12 @@ import LikesButton from "../components/LikesButton"
 import Button from "../components/Button"
 import ReviewSlider from "../components/ReviewSlider"
 import AddReview from "../components/AddReview"
+import ImgSlider from "../components/ImgSlider"
 
 const DetailPage = () => {
 
     const { id } = useParams();
-    const { fetchProperty, property } = useGlobalContext();
+    const { fetchProperty, property, properties } = useGlobalContext();
 
     useEffect(() => {
         fetchProperty(id)
@@ -39,15 +40,24 @@ const DetailPage = () => {
                         </h1>
                     </div>
                 </div>
-                <div className="col-12 pt-2"><span>{averageVote && <Stars vote={averageVote} />}</span></div>
+
+                {property.reviews.length > 0 ?
+                    (
+                        <div className="col-12 pt-2"><span>{averageVote && <Stars vote={averageVote} />}</span></div>
+
+                    ) :
+                    (<div>
+                        <h4>Nessuna recensione rilasciata</h4>
+                    </div>)
+                }
             </div>
 
             <div className="container details-container bg-white shadow">
 
                 <div className="row py-3">
 
-                    <div className="col-lg-7 col-12">
-                        <img src={property?.cover_img} alt="cover_img" className="w-100" />
+                    <div className="col-lg-7 col-12 sezione-img-dettagli">
+                        <ImgSlider arrayImg={property.images} coverImg={property.cover_img} />
                     </div>
                     <div className="col-lg-5 col-12 d-flex flex-column">
 

@@ -203,6 +203,12 @@ h4 {
   object-fit: cover;
 }
 
+
+.sezione-img-dettagli .card-img {
+  width: 100%;
+  aspect-ratio: 5/4;
+}
+
 .card-title {
   color: var(--text-primary);
 }
@@ -257,6 +263,16 @@ h4 {
 
 .card:hover .swiper-button-next::after,
 .card:hover .swiper-button-prev::after {
+  color: var(--bg-accent) !important;
+}
+
+.sezione-img-dettagli:hover .swiper-button-next,
+.sezione-img-dettagli:hover .swiper-button-prev {
+  background-color: var(--bg-primary);
+}
+
+.sezione-img-dettagli:hover .swiper-button-next::after,
+.sezione-img-dettagli:hover .swiper-button-prev::after {
   color: var(--bg-accent) !important;
 }
 
