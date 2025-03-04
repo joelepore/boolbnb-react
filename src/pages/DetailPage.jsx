@@ -29,11 +29,11 @@ const DetailPage = () => {
 
             <div className="container details-container bg-white p-3 mb-2 shadow">
                 <div className="row align-items-center">
-                    <div className="col-10">
+                    <div className="col-lg-10 col-12">
                         <h1 className="">{property.title}</h1>
                     </div>
 
-                    <div className="col-2 d-flex justify-content-end align-items-center">
+                    <div className="col-lg-2 col-12 justify-content-lg-end d-flex align-items-center">
                         <h1 className="m-0 position-relative">
                             <LikesButton id={id} callback={() => fetchProperty(id)} /> {property.likes}
                         </h1>
@@ -46,13 +46,13 @@ const DetailPage = () => {
 
                 <div className="row py-3">
 
-                    <div className="col-7">
+                    <div className="col-lg-7 col-12">
                         <img src={property?.cover_img} alt="cover_img" className="w-100" />
                     </div>
-                    <div className="col-5 d-flex flex-column">
+                    <div className="col-lg-5 col-12 d-flex flex-column">
 
                         <div className="d-flex flex-column">
-                            <h2 className="text-truncate pb-1">{property?.address}</h2>
+                            <h2 className="text-truncate pb-1 pt-2">{property?.address}</h2>
 
                             <p className="py-4">
                                 <strong>Descrizione:</strong> <br /> {property.description}
@@ -82,42 +82,6 @@ const DetailPage = () => {
                     </div>
 
                 </div>
-
-
-                {/* ============================ */}
-
-                {/* <div className="details-container-img d-flex justify-content-center mt-4 py-3 bg-body-secondary">
-                    <img src={property?.cover_img} alt="property.img" className="details-img" />
-                </div>
-
-                <div className="row mt-5 d-flex">
-                    <div className="col-9">
-                        <h2 className="text-truncate">{property.address}</h2>
-                        <p className="text-muted mt-2"><strong>Proprietario:</strong> {property.owner_fullname}</p>
-                        <p className="text-muted mt-1"><strong>email:</strong> {property.email}</p>
-
-                        <br />
-
-                        <div className="d-flex gap-4">
-                            <h3>Dettagli:</h3>
-                            <p>m²: {property.sqm}</p>
-                            <p><i className="fa-solid fa-door-open"></i> {property.rooms} </p>
-                            <p><i className="fa-solid fa-bed"></i> {property.beds} </p>
-                            <p><i className="fa-solid fa-bath"></i> {property.bathrooms} </p>
-                        </div>
-                    </div>
-                    <div className="col-3 d-flex gap-3 flex-column">
-                        {averageVote && <Stars vote={averageVote} />}
-                        <p><i className="fa-solid fa-heart text-danger px-2"></i>{property.likes}</p>
-                        <Button onClick={() => window.location.href = `mailto:${property.email}?subject=BoolB&B:%20Richiesta%20Informazioni&body=Salve%20${property.owner_fullname},%20vorrei%20informazioni%20sull'immobile%20${property.title}`}
-                            text={"Contatta proprietario"} />
-
-                    </div>
-
-                </div>
-                <div className="col-12 mt-5">{property.description}</div> */}
-
-                {/* ============================ */}
 
             </div>
 
