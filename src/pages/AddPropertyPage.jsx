@@ -5,6 +5,7 @@ import axios from "axios";
 import { useGlobalContext } from "../context/GlobalContext";
 import validator from 'validator';
 import { useNavigate } from "react-router-dom";
+import ImgSlider from "../components/ImgSlider";
 
 const AddPropertyPage = () => {
     const api_url = import.meta.env.VITE_API_URL
@@ -19,12 +20,14 @@ const AddPropertyPage = () => {
         owner_fullname: '',
         email: '',
         cover_img: '',
-        category: 0
+        category: 0,
+        gallery: ''
     }
     const { types } = useGlobalContext();
     const [step, setStep] = useState(1);
     const [propertyData, setPropertyData] = useState(initialPropertyData);
     const [previewImg, setPreviewImg] = useState('');
+    const [previewGallery, setPreviewGallery] = useState([]);
     const [validationData, setValidationData] = useState({
         title: true,
         address: true,
@@ -36,7 +39,7 @@ const AddPropertyPage = () => {
     // Funzione che valida i dati in input, setta a true il rispettivo stato in caso di errore 
     // e restituisce true se c'e' almeno un errore 
     const validateData = () => {
-        const { title, address, description, category, rooms, beds, bathrooms, sqm, cover_img, owner_fullname, email } = propertyData;
+        const { title, address, description, category, rooms, beds, bathrooms, sqm, cover_img, owner_fullname, email, gallery } = propertyData;
         switch (step) {
             case 1:
                 if (!title || title.length < 10) {
@@ -89,6 +92,11 @@ const AddPropertyPage = () => {
                     setValidationData(prev => ({ ...prev, cover_img: true }));
                 } else {
                     setValidationData(prev => ({ ...prev, cover_img: false }));
+                }
+                if (!gallery) {
+                    setValidationData(prev => ({ ...prev, gallery: true }));
+                } else {
+                    setValidationData(prev => ({ ...prev, gallery: false }));
                 }
                 break;
             case 4:
@@ -143,6 +151,25 @@ const AddPropertyPage = () => {
         setPreviewImg(URL.createObjectURL(e.target.files[0]));
     }
 
+    const handleGalleryChange = (e) => {
+        setPropertyData(prev => ({ ...prev, gallery: Array.from(e.target.files) }));
+        const images = Array.from(e.target.files).map((img, index) => ({ id: index, path: URL.createObjectURL(img) }));
+        setPreviewGallery(images);
+    }
+
+    const handleUploadGallery = async (id) => {
+        const formData = new FormData();
+        propertyData.gallery.forEach(image => formData.append('gallery', image));
+
+        try {
+            const response = await axios.post(`${api_url}/properties/${id}/gallery`, formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     const handleUpload = async () => {
         const formData = new FormData();
         for (let key in propertyData) {
@@ -153,6 +180,7 @@ const AddPropertyPage = () => {
             const response = await axios.post(`${api_url}/properties`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
+            handleUploadGallery(response.data.id);
             navigate(`/property/${response.data.id}`);
         } catch (error) {
             console.error("Errore durante il caricamento", error);
@@ -303,6 +331,23 @@ const AddPropertyPage = () => {
                         <picture className="">
                             <img className='img-fluid' src={previewImg} alt="Anteprima copertina immagine" />
                         </picture>
+                    )}
+                    <div className="form-property text-center">
+                        <strong>Inserisci la gallery di immagini</strong>
+                        <input
+                            type="file"
+                            name="gallery"
+                            id="input-property-gallery"
+                            className="input-property"
+                            multiple accept="image/*"
+                            onChange={handleGalleryChange}
+                        />
+                        {validationData.gallery && <small className="text-danger">La gallery è obbligatoria</small>}
+                    </div>
+                    {previewGallery && (
+                        <div className="card mb-3">
+                            <ImgSlider arrayImg={previewGallery} />
+                        </div>
                     )}
                 </>
             )}
