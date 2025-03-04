@@ -46,7 +46,7 @@ h4 {
   gap: 8%;
 }
 
-.swiper-slide {
+.custm-w .swiper-slide {
   width: fit-content !important;
 }
 

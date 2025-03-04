@@ -22,7 +22,7 @@ const DetailPage = () => {
     const navigate = useNavigate()
 
     const totalVotes = property.reviews.reduce((sum, review) => sum + review.vote, 0);
-    const averageVote = (totalVotes / property.reviews.length).toFixed(2);
+    const averageVote = (totalVotes / property.reviews.length).toFixed(1);
 
 
     return (
@@ -43,7 +43,10 @@ const DetailPage = () => {
 
                 {property.reviews.length > 0 ?
                     (
-                        <div className="col-12 pt-2"><span>{averageVote && <Stars vote={averageVote} />}</span></div>
+                        <div className="col-12 pt-2 d-flex justify-content-start">
+                            {averageVote && <Stars vote={averageVote} />}
+                            <p className="ps-1"><small>{averageVote}</small></p>
+                        </div>
 
                     ) :
                     (<div>
@@ -64,22 +67,23 @@ const DetailPage = () => {
                         <div className="d-flex flex-column">
                             <h2 className="text-truncate pb-1 pt-2">{property?.address}</h2>
 
-                            <p className="py-4">
-                                <strong>Descrizione:</strong> <br /> {property.description}
-                            </p>
+                            <h3 className="pt-4">Descrizione: </h3>
+
+                            <p className="fs-5 pb-4 italic">{property.description}</p>
+
 
 
                             <h3 className="mt-2">Dettagli:</h3>
-                            <p>{property.sqm} - m²</p>
-                            <p><i className="fa-solid fa-door-open"></i> {property.rooms} - Stanze</p>
-                            <p><i className="fa-solid fa-bed"></i> {property.beds} - Letti</p>
-                            <p><i className="fa-solid fa-bath"></i> {property.bathrooms} - Bagni</p>
+                            <p className="pt-2" >{property.sqm} - m²</p>
+                            <p className="pt-1"><i className="fa-solid fa-door-open"></i> {property.rooms} - Stanze</p>
+                            <p className="pt-1"><i className="fa-solid fa-bed"></i> {property.beds} - Letti</p>
+                            <p className="pt-1"><i className="fa-solid fa-bath"></i> {property.bathrooms} - Bagni</p>
 
 
 
                         </div>
 
-                        <div className="py-2 mt-auto">
+                        <div className="py-3 mt-auto">
                             <p className="text-muted mb-1"><strong>Proprietario:</strong> {property?.owner_fullname}</p>
                             <p className="text-muted mb-3"><strong>Email:</strong> {property?.email}</p>
                             <Button
