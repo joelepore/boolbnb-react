@@ -3,9 +3,9 @@ import { useGlobalContext } from "../context/GlobalContext"
 import Card from "../components/Card"
 import { useEffect } from "react";
 import Button from "../components/Button";
-import TypeButton from "../components/TypeButton";
 import { useNavigate } from "react-router-dom";
-import TypesMenu from "../components/TypesMenu"
+import TypesWrapper from "../components/TypesWrapper";
+
 
 const SearchPage = () => {
     const { setFilterData, isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults, types } = useGlobalContext();
@@ -27,17 +27,7 @@ const SearchPage = () => {
 
     return (
         <>
-            <div className="types-menu d-flex justify-content-center mb-3">
-                {types.map(type => (
-                    <TypesMenu
-                        id={type.id}
-                        key={type.id}
-                        text={type.name}
-                        path={type.icon_path}
-                        onClick={() => handleClick(type.id)}
-                    />
-                ))}
-            </div>
+            <TypesWrapper />
 
             {isSearching && <SearchModal />}
             <div className="container">

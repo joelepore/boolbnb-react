@@ -3,14 +3,12 @@ import Card from "../components/Card"
 import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import SearchModal from "../components/SearchModal"
-import TypesMenu from "../components/TypesMenu"
-import { useNavigate } from "react-router-dom"
+import TypesWrapper from "../components/TypesWrapper"
+
 
 const HomePage = () => {
 
     const { initialFilterData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetchProperties();
@@ -19,25 +17,9 @@ const HomePage = () => {
 
     }, [])
 
-    const handleClick = (id) => {
-        setFilterData(prev => ({ ...prev, type: id }));
-        navigate('/search')
-    }
-
     return (
         <>
-            <div className="types-menu d-flex justify-content-center mb-3">
-                {types.map(type => (
-                    <TypesMenu
-                        id={type.id}
-                        key={type.id}
-                        text={type.name}
-                        path={type.icon_path}
-                        onClick={() => handleClick(type.id)}
-                    />
-                ))}
-            </div>
-
+            <TypesWrapper />
 
             {isSearching && <SearchModal />}
             <div className="container">
