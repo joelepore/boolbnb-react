@@ -65,6 +65,7 @@ const AddReview = ({ id }) => {
                     <label className="form-label">Autore</label>
                     <br />
                     <input
+                        placeholder="Inserisci il tuo nome"
                         type="text"
                         className="input-reviews"
                         value={reviewData.author}
@@ -119,6 +120,7 @@ const AddReview = ({ id }) => {
                         <label className="form-label">Recensione</label>
                         <br />
                         <textarea
+                            placeholder="Inserisci un testo di almeno 10 caratteri"
                             className="input-reviews"
                             rows="3"
                             value={reviewData.text}
