@@ -45,7 +45,7 @@ const TypesWrapper = () => {
                             1024: { slidesPerView: 8 }
                         }}
                     >
-                        {types.map(type => (
+                        {types.sort((a, b) => a.id - b.id).map(type => (
                             <SwiperSlide className="custom-slide" key={type.id}>
                                 <TypesMenu
                                     id={type.id}
