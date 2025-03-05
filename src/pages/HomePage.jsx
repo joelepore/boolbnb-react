@@ -24,7 +24,6 @@ const HomePage = () => {
     return (
         <>
             <TypesWrapper />
-
             {isSearching && <SearchModal />}
             <div className="container">
 

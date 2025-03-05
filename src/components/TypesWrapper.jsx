@@ -20,7 +20,7 @@ const TypesWrapper = () => {
 
     return (
         <div className=" container mb-3 w-100">
-            <div className="row align-items-center custm-w">
+            <div className="row align-items-center custm-w pt-2">
                 <div className="col-1">
                     <TypesMenu
                         id={''}
@@ -30,16 +30,20 @@ const TypesWrapper = () => {
                     />
                 </div>
 
-                <div className="col-10">
+                <div className="col-11">
                     <Swiper
                         navigation={{
                             nextEl: '.custom-next',
                             prevEl: '.custom-prev',
                         }}
                         modules={[Navigation]}
-                        className="mySwiper custom-swiper-types"
-                        slidesPerView="auto"
-
+                        className="mySwiper "
+                        slidesPerView={3}
+                        breakpoints={{
+                            480: { slidesPerView: 5 },
+                            768: { slidesPerView: 7 },
+                            1024: { slidesPerView: 8 }
+                        }}
                     >
                         {types.map(type => (
                             <SwiperSlide className="custom-slide" key={type.id}>
@@ -58,8 +62,8 @@ const TypesWrapper = () => {
                     </Swiper>
 
                 </div>
-                <div className="col-1">
-                </div>
+                {/* <div className="col-1">
+                </div> */}
             </div>
 
         </div >
