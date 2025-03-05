@@ -2,7 +2,7 @@
 
 const Button = ({ text, onClick }) => {
     return (
-        <button className="button" onClick={onClick}>{text}</button>
+        <button className="button fit-content" onClick={onClick}>{text}</button>
     )
 }
 

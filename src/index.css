@@ -81,17 +81,20 @@ h4 {
   color: #000028;
 }
 
+
 .btn-type {
   border: 2px solid transparent;
+  border-bottom: 2px solid transparent;
   background: var(--bg-primary);
   color: var(--text-primary);
   cursor: pointer;
   font-family: 'Instrument Sans';
   padding-bottom: 5px;
+  transition: transform 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
 }
 
 .btn-type:active {
-  transform: scale(0.95) !important;
+  transform: scale(0.95);
 }
 
 .btn-type:hover {
@@ -577,6 +580,11 @@ label[for^="input-property"] {
   margin-top: 10px;
   font-size: 1.2rem;
   color: var(--bg-accent);
+}
+
+
+.fit-content {
+  width: fit-content;
 }
 
 @keyframes spin {

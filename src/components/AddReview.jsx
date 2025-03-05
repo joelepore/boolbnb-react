@@ -133,7 +133,7 @@ const AddReview = ({ id }) => {
                 </div>
 
                 <div className="text-center mt-4">
-                    <button type="submit" className="button w-25" onClick={handlerSubmit}>
+                    <button type="submit" className="button fit-content" onClick={handlerSubmit}>
                         Invia Recensione
                     </button>
                 </div>

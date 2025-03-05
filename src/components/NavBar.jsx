@@ -29,7 +29,7 @@ const NavBar = () => {
 
                     <div className="col-12 col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2 my-3">
 
-                        <div className="search-container col-12 d-flex justify-content-center align-items-center my-3 px-2">
+                        <div className="search-container col-12 d-flex justify-content-center align-items-center my-1 px-2">
                             <input
                                 type="text"
                                 placeholder="Cerca destinazione o immobile"
