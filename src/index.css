@@ -41,14 +41,9 @@ h4 {
   color: #75787a;
 }
 
-
-.custm-w .swiper-wrapper {
-  justify-content: center !important;
-  gap: 8%;
-}
-
-.custm-w .swiper-slide {
-  width: fit-content !important;
+.custom-slide {
+  display: flex !important;
+  justify-content: center;
 }
 
 
@@ -108,7 +103,7 @@ h4 {
 }
 
 .type-logo {
-  max-width: 50px;
+  max-width: 30px;
 }
 
 .types-menu {
@@ -237,6 +232,7 @@ h4 {
 
 
 
+
 /*SLIDER*/
 
 .swiper-button-next::after,
@@ -268,6 +264,16 @@ h4 {
   transform: scale(0.9) !important;
 }
 
+.custm-w:hover .swiper-button-next,
+.custm-w:hover .swiper-button-prev {
+  background-color: var(--bg-primary);
+}
+
+.custm-w:hover .swiper-button-next::after,
+.custm-w:hover .swiper-button-prev::after {
+  color: var(--bg-accent) !important;
+}
+
 .card:hover .swiper-button-next,
 .card:hover .swiper-button-prev {
   background-color: var(--bg-primary);
@@ -287,7 +293,6 @@ h4 {
 .sezione-img-dettagli:hover .swiper-button-prev::after {
   color: var(--bg-accent) !important;
 }
-
 
 /*======*/
 
