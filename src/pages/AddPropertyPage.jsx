@@ -389,6 +389,10 @@ const AddPropertyPage = () => {
                 </div>
             )}
 
+
+            <div className="text-center pb-4">
+                <strong>{step} / 5</strong>
+            </div>
             <div className="text-center d-flex gap-2 justify-content-center">
                 {step > 1 && <Button text='Indietro' onClick={handlePreviousStepClick} />}
                 {step < 5 ? (
