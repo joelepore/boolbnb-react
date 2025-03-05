@@ -549,6 +549,43 @@ label[for^="input-property"] {
   margin-top: 0.3rem;
 }
 
+/* ========================== */
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 5px solid var(--bg-secondary);
+  border-top-color: var(--bg-accent);
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+}
+
+.loader-text {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--bg-accent);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================  */
+
 
 @media screen and (min-width: 426px) {
   .search-modal {

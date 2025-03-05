@@ -1,9 +1,8 @@
 const Loader = () => {
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-            <div className="spinner-border text-primary" role="status">
-                <span className="">Loading...</span>
-            </div>
+        <div className="loader-container">
+            <div className="loader"></div>
+            <span className="loader-text">Loading...</span>
         </div>
     );
 };
