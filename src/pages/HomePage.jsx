@@ -4,11 +4,12 @@ import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import SearchModal from "../components/SearchModal"
 import TypesWrapper from "../components/TypesWrapper"
+import Loader from "../components/Loader"
 
 
 const HomePage = () => {
 
-    const { initialFilterData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types } = useGlobalContext()
+    const { initialFilterData, setFilterData, fetchProperties, properties, isSearching, incrementCurrentPage, currentPage, setCurrentPage, totalPages, types, loading } = useGlobalContext()
 
     useEffect(() => {
         fetchProperties();
@@ -16,6 +17,9 @@ const HomePage = () => {
         setFilterData(initialFilterData)
 
     }, [])
+
+
+    if (loading) return <Loader />
 
     return (
         <>

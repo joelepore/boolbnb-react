@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import TypesWrapper from "../components/TypesWrapper";
+import Loader from "../components/Loader";
 
 
 const SearchPage = () => {
-    const { setFilterData, isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults, types } = useGlobalContext();
+    const { setFilterData, isSearching, setIsSearching, filteredProperties, setCurrentPage, incrementCurrentPageSearchPage, currentPage, totalPages, totalResults, types, loading } = useGlobalContext();
 
     const navigate = useNavigate();
 
@@ -24,6 +25,8 @@ const SearchPage = () => {
         setFilterData(prev => ({ ...prev, type: id }));
         navigate('/search')
     }
+
+    if (loading) return <Loader />
 
     return (
         <>

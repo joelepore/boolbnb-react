@@ -41,12 +41,15 @@ const GlobalProvider = ({ children }) => {
     const [totalResults, setTotalResults] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [property, setProperty] = useState(initialProperty); //var di stato per la gestione del render della pagina dettaglio
+    const [loading, setLoading] = useState(true) //variabile di stat per gesire il loading
 
 
     function fetchProperty(id) {
+        setLoading(true)
         axios.get(`${api_url}/properties/${id}`)
             .then(res => setProperty(res.data))
             .catch(err => console.error(err))
+            .finally(() => setLoading(false))
     }
 
     //un funzione di fetch che raccolga le info dell'immobile in base all'id e le recensioni (Rotta show)
@@ -56,6 +59,7 @@ const GlobalProvider = ({ children }) => {
         let filteredUrl = `${api_url}/properties?limit=8&page=1&rooms=${rooms}&beds=${beds}`;
         if (search) filteredUrl += `&search=${search}`;
         if (type) filteredUrl += `&type=${type}`;
+        setLoading(true)
         axios.get(filteredUrl)
             .then(res => {
                 setFilteredProperties(res.data.results);
@@ -63,6 +67,7 @@ const GlobalProvider = ({ children }) => {
                 setTotalResults(res.data.totalResults);
             })
             .catch(err => console.error(err))
+            .finally(() => setLoading(false))
 
     }
 
@@ -88,12 +93,14 @@ const GlobalProvider = ({ children }) => {
     }
 
     function fetchProperties() {
+        setLoading(true)
         axios.get(`${api_url}/properties?limit=8&page=1`) // Gestire limit e page in modo dinamico
             .then(res => {
                 setProperties(res.data.results)
                 setTotalPages(res.data.totalPages)
             })
             .catch(err => console.error(err))
+            .finally(() => setLoading(false))
     }
     // Funzione che viene scatenata al click del pulsante mostra altri immobili nella homepage
     function incrementCurrentPage() {
@@ -163,6 +170,7 @@ const GlobalProvider = ({ children }) => {
         property,
         setProperty,
         fetchProperty,
+        loading
     }
 
 

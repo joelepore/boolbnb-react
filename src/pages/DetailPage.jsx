@@ -8,11 +8,12 @@ import Button from "../components/Button"
 import ReviewSlider from "../components/ReviewSlider"
 import AddReview from "../components/AddReview"
 import ImgSlider from "../components/ImgSlider"
+import Loader from "../components/Loader"
 
 const DetailPage = () => {
 
     const { id } = useParams();
-    const { fetchProperty, property, properties, setProperty } = useGlobalContext();
+    const { fetchProperty, property, properties, setProperty, loading } = useGlobalContext();
 
     useEffect(() => {
         fetchProperty(id)
@@ -25,6 +26,9 @@ const DetailPage = () => {
     const totalVotes = property.reviews.reduce((sum, review) => sum + review.vote, 0);
     const averageVote = (totalVotes / property.reviews.length).toFixed(1);
 
+
+
+    if (loading) return <Loader />
 
     return (
         <>
@@ -122,5 +126,6 @@ const DetailPage = () => {
 
     )
 }
+
 
 export default DetailPage
