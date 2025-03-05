@@ -21,7 +21,7 @@ const NavBar = () => {
 
                     <div className="col-6 col-md-3 d-flex align-items-center ">
 
-                        <Link to="/" className="d-flex align-items-center logo-brand">
+                        <Link to="/" className="d-flex align-items-center logo-brand logo-brand-cont">
                             <img className="logo" src="/Logo_prova.png" alt="Logo" />
                             <h1 className="logo-brand">BoolB&B</h1>
                         </Link>
