@@ -6,6 +6,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import validator from 'validator';
 import { useNavigate } from "react-router-dom";
 import ImgSlider from "../components/ImgSlider";
+import CardSummary from "../components/CardSummary";
 
 const AddPropertyPage = () => {
     const api_url = import.meta.env.VITE_API_URL
@@ -204,8 +205,8 @@ const AddPropertyPage = () => {
     }, [propertyData, step])
 
     return (
-        <div className="container px-5 max-w-md">
-            <h1 className="text-center">Aggiungi un nuovo immobile</h1>
+        <div className={`container px-5 ${step < 5 ? 'max-w-md' : ''}`}>
+            <h1 className="text-center py-4">{`${step < 5 ? 'Aggiungi un nuovo immobile' : 'Riepilogo immobile'}`}</h1>
             {/* Step 1 */}
             {step === 1 && (
                 <>
@@ -384,11 +385,18 @@ const AddPropertyPage = () => {
             )}
 
             {step === 5 && (
-                <div className="text-center my-3">
-                    <strong>Sei sicuro di voler aggiungere questo immobile?</strong>
-                </div>
+                <>
+                    <CardSummary property={propertyData} />
+                    <div className="text-center my-3">
+                        <strong>Sei sicuro di voler aggiungere questo immobile?</strong>
+                    </div>
+                </>
             )}
 
+
+            <div className="text-center pb-4">
+                <strong>{step} / 5</strong>
+            </div>
             <div className="text-center d-flex gap-2 justify-content-center">
                 {step > 1 && <Button text='Indietro' onClick={handlePreviousStepClick} />}
                 {step < 5 ? (
