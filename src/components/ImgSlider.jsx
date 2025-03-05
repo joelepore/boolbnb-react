@@ -14,8 +14,8 @@ const ImgSlider = ({ arrayImg, coverImg }) => {
             className="mySwiper"
         >
             {coverImg && <SwiperSlide><img src={coverImg} alt="cover" className="card-img" /></SwiperSlide>}
-            {arrayImg.map((img) => (
-                <SwiperSlide key={img.id}>
+            {arrayImg.map((img, index) => (
+                <SwiperSlide key={img.id || index}>
                     <img src={img.path} alt="img" className="card-img" />
                 </SwiperSlide>
             ))}
