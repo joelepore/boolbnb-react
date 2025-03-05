@@ -1,8 +1,8 @@
 import Stars from "./Stars";
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ onClick, review }) => {
 
-    const { author, text, date, days, create_date, vote } = review
+    const { id, author, text, date, days, create_date, vote } = review
 
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -27,7 +27,7 @@ const ReviewCard = ({ review }) => {
     const slicedText = sliceText(text, 125);
 
     return (
-        <div className="d-flex card rev-card">
+        <div className="d-flex card rev-card" onClick={() => onClick(id)}>
             <div className="col-5">
                 <h2>{author}</h2>
                 <div className="stars-review mb-3"><Stars className='fs-7' vote={vote} /></div>

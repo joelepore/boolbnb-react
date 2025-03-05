@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import ReviewCard from './ReviewCard'
 
 
-const ReviewSlider = ({ review }) => {
+const ReviewSlider = ({ review, onClick }) => {
     return (
 
         <Swiper
@@ -43,7 +43,7 @@ const ReviewSlider = ({ review }) => {
         >
             {review.map((rev) => (
                 <SwiperSlide key={rev.id}>
-                    <ReviewCard review={rev} />
+                    <ReviewCard review={rev} onClick={onClick} />
                 </SwiperSlide>
             ))}
 

@@ -1,5 +1,5 @@
 import Stars from "../components/Stars"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useNavigate } from "react-router-dom"
@@ -8,6 +8,7 @@ import Button from "../components/Button"
 import ReviewSlider from "../components/ReviewSlider"
 import AddReview from "../components/AddReview"
 import ImgSlider from "../components/ImgSlider"
+import ReviewModal from "../components/ReviewModal"
 
 const DetailPage = () => {
 
@@ -25,10 +26,18 @@ const DetailPage = () => {
     const totalVotes = property.reviews.reduce((sum, review) => sum + review.vote, 0);
     const averageVote = (totalVotes / property.reviews.length).toFixed(1);
 
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [clickedRev, setClickedRev] = useState({})
+
+    const handlerClickedRev = id => {
+        setClickedRev(property.reviews.find(review => review.id == id))
+        setIsModalOpen(true)
+    }
+
 
     return (
         <>
-
+            {isModalOpen && <ReviewModal review={clickedRev} onClick={() => setIsModalOpen(false)} />}
             <div className="container details-container bg-white p-3 mb-2 shadow">
                 <div className="row align-items-center">
                     <div className="col-lg-10 col-12">
@@ -104,7 +113,7 @@ const DetailPage = () => {
                 {property.reviews.length > 0 ?
                     (<div>
                         <h1 className="mt-2 mb-3">Recensioni</h1>
-                        <ReviewSlider review={property.reviews} />
+                        <ReviewSlider review={property.reviews} onClick={handlerClickedRev} />
                     </div>) :
                     (<div>
                         <h2 className="text-center py-3 ">Nessuna recensione trovata</h2>
