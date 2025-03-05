@@ -39,7 +39,7 @@ const ReviewSlider = ({ review }) => {
                 },
             }}
             modules={[Pagination, Navigation]}
-            className="mySwiper px-1"
+            className="mySwiper px-1 pb-5"
         >
             {review.map((rev) => (
                 <SwiperSlide key={rev.id}>
