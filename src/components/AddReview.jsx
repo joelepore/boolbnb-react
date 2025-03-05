@@ -126,7 +126,7 @@ const AddReview = ({ id }) => {
                             value={reviewData.text}
                             name="text"
                             onChange={setFieldValue}
-                            maxLength="100"
+                            maxLength="1000"
                             required
                         />
                     </div>

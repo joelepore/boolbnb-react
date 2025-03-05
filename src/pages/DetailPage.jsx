@@ -70,7 +70,7 @@ const DetailPage = () => {
 
                             <h3 className="pt-4">Descrizione: </h3>
 
-                            <p className="fs-5 pb-4 italic">{property.description}</p>
+                            <p className="interlinea-c pb-4 italic">{property.description}</p>
 
 
 

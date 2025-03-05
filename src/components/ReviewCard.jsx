@@ -17,6 +17,14 @@ const ReviewCard = ({ review }) => {
     const formattedArrivalDate = formatDate(date)
     const formattedRewiewDate = formatDate(create_date)
 
+    function sliceText(testo, maxChar) {
+        if (testo.length > maxChar) {
+            return testo.slice(0, maxChar) + '...';
+        }
+        return testo;
+    }
+
+    const slicedText = sliceText(text, 125);
 
     return (
         <div className="d-flex card rev-card">
@@ -28,7 +36,7 @@ const ReviewCard = ({ review }) => {
             </div>
 
             <div className="col-7 d-flex flex-column justify-content-between">
-                <p><i className="fa-solid fa-quote-left mt-2 "></i> {text} <i className="fa-solid fa-quote-right"></i></p>
+                <p><i className="fa-solid fa-quote-left mt-2 "></i> {slicedText} <i className="fa-solid fa-quote-right"></i></p>
                 <p className="text-end "><em><small>Inserita il {formattedRewiewDate}</small></em></p>
             </div>
         </div>
