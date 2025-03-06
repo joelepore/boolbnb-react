@@ -41,6 +41,12 @@ h4 {
   color: #75787a;
 }
 
+.interlinea-c {
+  line-height: 22px;
+  padding-right: 30px;
+  font-size: 16.5px;
+}
+
 .custom-slide {
   display: flex !important;
   justify-content: center;
