@@ -9,3 +9,8 @@ This project is the front-end side of a full stack project. You can find the bac
 - ExpressJs
 - React
 
+### Screenshots
+#### Home Page
+![Home page](./public/screenshots/homepage.png "Home Page")
+#### Detail Page
+![Detail page](./public/screenshots/detailpage.png "Detail Page")
